@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module HighlightCode - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>plugins/pygments_code.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-highlight">::highlight</a>
+    
+    <li ><a href="#method-c-pygments">::pygments</a>
+    
+    <li ><a href="#method-c-tableize_code">::tableize_code</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="./ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="./HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="./Jekyll.html">Jekyll</a>
+  
+    <li><a href="./Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="./Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="./Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="./Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="./Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="./Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="./Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="./Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="./Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="./Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="./Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="./Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="./Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="./Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="./Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="./Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="./Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="./Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="./Liquid.html">Liquid</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="./OctopressFilters/PageFilters.html">OctopressFilters::PageFilters</a>
+  
+    <li><a href="./OctopressFilters/PostFilters.html">OctopressFilters::PostFilters</a>
+  
+    <li><a href="./OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="./RubyPants.html">RubyPants</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module HighlightCode</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-highlight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">highlight</span><span
+            class="method-args">(str, lang)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="highlight-source">
+            <pre><span class="ruby-comment"># File plugins/pygments_code.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">highlight</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">lang</span>)
+  <span class="ruby-identifier">lang</span> = <span class="ruby-string">&#39;ruby&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;ru&#39;</span>
+  <span class="ruby-identifier">lang</span> = <span class="ruby-string">&#39;objc&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;m&#39;</span>
+  <span class="ruby-identifier">lang</span> = <span class="ruby-string">&#39;perl&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;pl&#39;</span>
+  <span class="ruby-identifier">lang</span> = <span class="ruby-string">&#39;yaml&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;yml&#39;</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">pygments</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">lang</span>).<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/&lt;pre&gt;(.+)&lt;\/pre&gt;/</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/ *$/</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-comment">#strip out divs &lt;div class=&quot;highlight&quot;&gt;</span>
+  <span class="ruby-identifier">tableize_code</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">lang</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- highlight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- highlight-method -->
+
+    
+      <div id="method-c-pygments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pygments</span><span
+            class="method-args">(code, lang)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pygments-source">
+            <pre><span class="ruby-comment"># File plugins/pygments_code.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pygments</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">PYGMENTS_CACHE_DIR</span>)
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">PYGMENTS_CACHE_DIR</span>, <span class="ruby-node">&quot;#{lang}-#{Digest::MD5.hexdigest(code)}.html&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-identifier">highlighted_code</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">highlighted_code</span> = <span class="ruby-constant">Pygments</span>.<span class="ruby-identifier">highlight</span>(<span class="ruby-identifier">code</span>, <span class="ruby-value">:lexer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lang</span>, <span class="ruby-value">:formatter</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;html&#39;</span>, <span class="ruby-value">:options</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;utf-8&#39;</span>, <span class="ruby-value">:startinline</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>})
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">MentosError</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Pygments can&#39;t parse unknown language: #{lang}.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;w&#39;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">print</span>(<span class="ruby-identifier">highlighted_code</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">highlighted_code</span> = <span class="ruby-constant">Pygments</span>.<span class="ruby-identifier">highlight</span>(<span class="ruby-identifier">code</span>, <span class="ruby-value">:lexer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lang</span>, <span class="ruby-value">:formatter</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;html&#39;</span>, <span class="ruby-value">:options</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;utf-8&#39;</span>, <span class="ruby-value">:startinline</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">highlighted_code</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pygments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pygments-method -->
+
+    
+      <div id="method-c-tableize_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tableize_code</span><span
+            class="method-args">(str, lang = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tableize_code-source">
+            <pre><span class="ruby-comment"># File plugins/pygments_code.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tableize_code</span> (<span class="ruby-identifier">str</span>, <span class="ruby-identifier">lang</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">table</span> = <span class="ruby-string">&#39;&lt;div class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&#39;</span>
+  <span class="ruby-identifier">code</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">table</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&lt;span class=&#39;line-number&#39;&gt;#{index+1}&lt;/span&gt;\n&quot;</span>
+    <span class="ruby-identifier">code</span>  <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&lt;span class=&#39;line&#39;&gt;#{line}&lt;/span&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">table</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#39;code&#39;&gt;&lt;pre&gt;&lt;code class=&#39;#{lang}&#39;&gt;#{code}&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- tableize_code-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- tableize_code-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

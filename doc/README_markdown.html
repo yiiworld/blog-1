@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README.markdown - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-What+is+Octopress%3F">What is Octopress?</a>
+      <li><a href="#label-Documentation">Documentation</a>
+      <li><a href="#label-Contributing">Contributing</a>
+      <li><a href="#label-License">License</a>
+      <li><a href="#label-If+you+want+to+be+awesome.">If you want to be awesome.</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="./ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="./HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="./Jekyll.html">Jekyll</a>
+  
+    <li><a href="./Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="./Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="./Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="./Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="./Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="./Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="./Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="./Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="./Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="./Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="./Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="./Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="./Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="./Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="./Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="./Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="./Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="./Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="./Liquid.html">Liquid</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="./OctopressFilters/PageFilters.html">OctopressFilters::PageFilters</a>
+  
+    <li><a href="./OctopressFilters/PostFilters.html">OctopressFilters::PostFilters</a>
+  
+    <li><a href="./OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="./RubyPants.html">RubyPants</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h2 id="label-What+is+Octopress%3F">What is Octopress?<span><a href="#label-What+is+Octopress%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Octopress is <a href="https://github.com/mojombo/jekyll">Jekyll</a>
+blogging at its finest.</p>
+<ol><li>
+<p><strong>Octopress sports a clean responsive theme</strong> written in
+semantic HTML5, focused on readability and friendliness toward mobile
+devices.</p>
+</li><li>
+<p><strong>Code blogging is easy and beautiful.</strong> Embed code (with <a
+href="http://ethanschoonover.com/solarized">Solarized</a> styling) in your
+posts from gists, jsFiddle or from your filesystem.</p>
+</li><li>
+<p><strong>Third party integration is simple</strong> with built-in support
+for Pinboard, Delicious, GitHub Repositories, Disqus Comments and Google
+Analytics.</p>
+</li><li>
+<p><strong>It&#39;s easy to use.</strong> A collection of rake tasks
+simplifies development and makes deploying a cinch.</p>
+</li><li>
+<p><strong>Ships with great plug-ins</strong> some original and others from
+the <a href="Jekyll.html">Jekyll</a> community — tested and improved.</p>
+</li></ol>
+
+<p><strong>Note</strong>: Octopress requires a minimum Ruby version of
+<code>1.9.3-p0</code>.</p>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Check out <a href="http://octopress.org/docs">Octopress.org</a> for guides
+and documentation.
+It should all apply to our current stable version (found
+in the <code>master</code>
+branch). If this is not the case, <a
+href="https://github.com/octopress/docs">please submit a fix to our docs
+repo</a>.</p>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="https://travis-ci.org/imathis/octopress.png?branch=master">{Build
+Status</a>]</p>
+
+<p>We love to see people contributing to Octopress, whether it&#39;s a bug
+report, feature suggestion or a pull request. At the moment, we try to keep
+the core slick and lean, focusing on basic blogging needs, so some of your
+suggestions might not find their way into Octopress. For those ideas, we
+started a <a
+href="https://github.com/imathis/octopress/wiki/3rd-party-plugins">list of
+3rd party plug-ins</a>, where you can link your own Octopress plug-in
+repositories. For the future, we&#39;re thinking about ways to easier add
+them into our main releases.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright © 2009-2013 Brandon Mathis</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the ‘Software’),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+
+<h4 id="label-If+you+want+to+be+awesome.">If you want to be awesome.<span><a href="#label-If+you+want+to+be+awesome.">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p>Proudly display the &#39;Powered by Octopress&#39; credit in the footer.</p>
+</li><li>
+<p>Add your site to the Wiki so we can watch the community grow.</p>
+</li></ul>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

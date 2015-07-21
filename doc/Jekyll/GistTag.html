@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Jekyll::GistTag - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>plugins/gist_tag.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Liquid::Tag
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-cache">#cache</a>
+    
+    <li ><a href="#method-i-get_cache_file_for">#get_cache_file_for</a>
+    
+    <li ><a href="#method-i-get_cached_gist">#get_cached_gist</a>
+    
+    <li ><a href="#method-i-get_gist_from_web">#get_gist_from_web</a>
+    
+    <li ><a href="#method-i-get_gist_url_for">#get_gist_url_for</a>
+    
+    <li ><a href="#method-i-get_web_content">#get_web_content</a>
+    
+    <li ><a href="#method-i-handle_gist_redirecting">#handle_gist_redirecting</a>
+    
+    <li ><a href="#method-i-html_output_for">#html_output_for</a>
+    
+    <li ><a href="#method-i-render">#render</a>
+    
+    <li ><a href="#method-i-script_url_for">#script_url_for</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../Liquid.html">Liquid</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../OctopressFilters/PageFilters.html">OctopressFilters::PageFilters</a>
+  
+    <li><a href="../OctopressFilters/PostFilters.html">OctopressFilters::PostFilters</a>
+  
+    <li><a href="../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Jekyll::GistTag</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(tag_name, text, token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">token</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@text</span>           = <span class="ruby-identifier">text</span>
+  <span class="ruby-ivar">@cache_disabled</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@cache_folder</span>   = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-string">&quot;../.gist-cache&quot;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-ivar">@cache_folder</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache</span><span
+            class="method-args">(gist, file, data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cache-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">cache_file</span> = <span class="ruby-identifier">get_cache_file_for</span> <span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">cache_file</span>, <span class="ruby-string">&quot;w&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">io</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cache-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cache-method -->
+
+    
+      <div id="method-i-get_cache_file_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_cache_file_for</span><span
+            class="method-args">(gist, file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_cache_file_for-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_cache_file_for</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">bad_chars</span> = <span class="ruby-regexp">/[^a-zA-Z0-9\-_.]/</span>
+  <span class="ruby-identifier">gist</span>      = <span class="ruby-identifier">gist</span>.<span class="ruby-identifier">gsub</span> <span class="ruby-identifier">bad_chars</span>, <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">file</span>      = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gsub</span> <span class="ruby-identifier">bad_chars</span>, <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">md5</span>       = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span> <span class="ruby-node">&quot;#{gist}-#{file}&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-ivar">@cache_folder</span>, <span class="ruby-node">&quot;#{gist}-#{file}-#{md5}.cache&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_cache_file_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_cache_file_for-method -->
+
+    
+      <div id="method-i-get_cached_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_cached_gist</span><span
+            class="method-args">(gist, file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_cached_gist-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_cached_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cache_disabled</span>
+  <span class="ruby-identifier">cache_file</span> = <span class="ruby-identifier">get_cache_file_for</span> <span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">cache_file</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">cache_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_cached_gist-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_cached_gist-method -->
+
+    
+      <div id="method-i-get_gist_from_web" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_gist_from_web</span><span
+            class="method-args">(gist, file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_gist_from_web-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_gist_from_web</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">gist_url</span> = <span class="ruby-identifier">get_gist_url_for</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">data</span>     = <span class="ruby-identifier">get_web_content</span>(<span class="ruby-identifier">gist_url</span>)
+
+  <span class="ruby-identifier">locations</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">data</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">301</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">302</span>)
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">handle_gist_redirecting</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locations</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">header</span>[<span class="ruby-string">&#39;Location&#39;</span>]
+    <span class="ruby-identifier">locations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">header</span>[<span class="ruby-string">&#39;Location&#39;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">200</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-node">&quot;Gist replied with #{data.code} for #{gist_url}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">cache</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">body</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@cache_disabled</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">body</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_gist_from_web-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_gist_from_web-method -->
+
+    
+      <div id="method-i-get_gist_url_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_gist_url_for</span><span
+            class="method-args">(gist, file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_gist_url_for-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_gist_url_for</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-node">&quot;https://gist.githubusercontent.com/raw/#{gist}/#{file}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_gist_url_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_gist_url_for-method -->
+
+    
+      <div id="method-i-get_web_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_web_content</span><span
+            class="method-args">(url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_web_content-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_web_content</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">raw_uri</span>           = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-identifier">proxy</span>             = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;http_proxy&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">proxy</span>
+    <span class="ruby-identifier">proxy_uri</span>       = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">proxy</span>)
+    <span class="ruby-identifier">https</span>           = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Proxy</span>(<span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">port</span>).<span class="ruby-identifier">new</span> <span class="ruby-identifier">raw_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">raw_uri</span>.<span class="ruby-identifier">port</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">https</span>           = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">raw_uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">raw_uri</span>.<span class="ruby-identifier">port</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">https</span>.<span class="ruby-identifier">use_ssl</span>     = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">https</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
+  <span class="ruby-identifier">request</span>           = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">raw_uri</span>.<span class="ruby-identifier">request_uri</span>
+  <span class="ruby-identifier">data</span>              = <span class="ruby-identifier">https</span>.<span class="ruby-identifier">request</span> <span class="ruby-identifier">request</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_web_content-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_web_content-method -->
+
+    
+      <div id="method-i-handle_gist_redirecting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_gist_redirecting</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_gist_redirecting-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_gist_redirecting</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">redirected_url</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">header</span>[<span class="ruby-string">&#39;Location&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">redirected_url</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">redirected_url</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;GitHub replied with a 302 but didn&#39;t provide a location in the response headers.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">get_web_content</span>(<span class="ruby-identifier">redirected_url</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_gist_redirecting-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_gist_redirecting-method -->
+
+    
+      <div id="method-i-html_output_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_output_for</span><span
+            class="method-args">(script_url, code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="html_output_for-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 38</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">html_output_for</span>(<span class="ruby-identifier">script_url</span>, <span class="ruby-identifier">code</span>)
+      <span class="ruby-identifier">code</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escapeHTML</span> <span class="ruby-identifier">code</span>
+      <span class="ruby-value">&lt;&lt;-HTML
+&lt;div&gt;&lt;script src=&#39;#{script_url}&#39;&gt;&lt;/script&gt;
+&lt;noscript&gt;&lt;pre&gt;&lt;code&gt;#{code}&lt;/code&gt;&lt;/pre&gt;&lt;/noscript&gt;&lt;/div&gt;
+      HTML</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div><!-- html_output_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- html_output_for-method -->
+
+    
+      <div id="method-i-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">(context)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>(<span class="ruby-identifier">context</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parts</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/([a-zA-Z\d]*) (.*)/</span>)
+    <span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span> = <span class="ruby-identifier">parts</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>, <span class="ruby-identifier">parts</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">gist</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">script_url</span> = <span class="ruby-identifier">script_url_for</span> <span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>
+    <span class="ruby-identifier">code</span>       = <span class="ruby-identifier">get_cached_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">get_gist_from_web</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">file</span>)
+    <span class="ruby-identifier">html_output_for</span> <span class="ruby-identifier">script_url</span>, <span class="ruby-identifier">code</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- render-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- render-method -->
+
+    
+      <div id="method-i-script_url_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">script_url_for</span><span
+            class="method-args">(gist_id, filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="script_url_for-source">
+            <pre><span class="ruby-comment"># File plugins/gist_tag.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">script_url_for</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;https://gist.github.com/#{gist_id}.js&quot;</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;#{url}?file=#{filename}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- script_url_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- script_url_for-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

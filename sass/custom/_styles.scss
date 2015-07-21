@@ -1,0 +1,14 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+#markdown-toc:before {
+  content: "本页目录";
+  font-weight: bold;
+}
+ul#markdown-toc {
+  list-style: none;
+  @include shadow-box;
+  background-color: white;
+}
+.blog-index #markdown-toc {
+  display: none;
+}

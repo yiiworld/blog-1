@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Jekyll::Filters - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>plugins/category_generator.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-category_link">#category_link</a>
+    
+    <li ><a href="#method-i-category_links">#category_links</a>
+    
+    <li ><a href="#method-i-date_to_html_string">#date_to_html_string</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../Liquid.html">Liquid</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../OctopressFilters/PageFilters.html">OctopressFilters::PageFilters</a>
+  
+    <li><a href="../OctopressFilters/PostFilters.html">OctopressFilters::PostFilters</a>
+  
+    <li><a href="../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Jekyll::Filters</h1>
+
+  <div id="description" class="description">
+    
+<p>Adds some extra filters used during the category creation process.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-category_link" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category_link</span><span
+            class="method-args">(category)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Outputs a single category as an &lt;a&gt; link.</p>
+
+<pre>+category+ is a category string to format as an &lt;a&gt; link</pre>
+
+<p>Returns string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="category_link-source">
+            <pre><span class="ruby-comment"># File plugins/category_generator.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">category_link</span>(<span class="ruby-identifier">category</span>)
+  <span class="ruby-identifier">dir</span> = <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">registers</span>[<span class="ruby-value">:site</span>].<span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;category_dir&#39;</span>]
+  <span class="ruby-node">&quot;&lt;a class=&#39;category&#39; href=&#39;/#{dir}/#{category.to_url}/&#39;&gt;#{category}&lt;/a&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- category_link-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- category_link-method -->
+
+    
+      <div id="method-i-category_links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">category_links</span><span
+            class="method-args">(categories)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Outputs a list of categories as comma-separated &lt;a&gt; links. This is
+used to output the category list for each post on a category page.</p>
+
+<pre>+categories+ is the list of categories to format.</pre>
+
+<p>Returns string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="category_links-source">
+            <pre><span class="ruby-comment"># File plugins/category_generator.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">category_links</span>(<span class="ruby-identifier">categories</span>)
+  <span class="ruby-identifier">categories</span> = <span class="ruby-identifier">categories</span>.<span class="ruby-identifier">sort!</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">category_link</span> <span class="ruby-identifier">c</span> }
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">categories</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+    <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">categories</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;#{categories[0...-1].join(&#39;, &#39;)}, #{categories[-1]}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- category_links-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- category_links-method -->
+
+    
+      <div id="method-i-date_to_html_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">date_to_html_string</span><span
+            class="method-args">(date)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Outputs the post.date as formatted html, with hooks for CSS styling.</p>
+
+<pre>+date+ is the date object to format as HTML.</pre>
+
+<p>Returns string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="date_to_html_string-source">
+            <pre><span class="ruby-comment"># File plugins/category_generator.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">date_to_html_string</span>(<span class="ruby-identifier">date</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-string">&#39;&lt;span class=&quot;month&quot;&gt;&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%b&#39;</span>).<span class="ruby-identifier">upcase</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;&lt;/span&gt; &#39;</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;&lt;span class=&quot;day&quot;&gt;%d&lt;/span&gt; &#39;</span>)
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;&lt;span class=&quot;year&quot;&gt;%Y&lt;/span&gt; &#39;</span>)
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- date_to_html_string-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- date_to_html_string-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
