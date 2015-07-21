@@ -4,7 +4,7 @@ rvm:
 before_script:
   - git config --global user.name "forecho"
   - git config --global user.email "caizhenghai@gmail.com"
-  - export REPO_URL="https://$GH_TOKEN@github.com/$GH_REPO.git"
+  - export REPO_URL="https://github.com/$GH_REPO.git"
   - bundle exec rake setup_github_pages[$REPO_URL]
   - git checkout -- _config.yml
 script:
