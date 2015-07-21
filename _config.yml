@@ -102,3 +102,12 @@ disqus_show_comment_count: true
 
 # Facebook Like
 # facebook_like: false
+
+
+# revision options
+# enable revision? true or false
+revision: true
+# associated github account
+revision_github_account: forecho
+# associated github repo for the blog
+revision_github_repo: blog
