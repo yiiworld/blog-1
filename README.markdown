@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/forecho/blog.github.io.png?branch=source)](https://travis-ci.org/forecho/blog.github.io)
+[![Build Status](https://travis-ci.org/forecho/blog.png?branch=source)](https://travis-ci.org/forecho/blog)
 
 
 ## What is Octopress?

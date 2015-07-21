@@ -17,5 +17,5 @@ after_script:
   - bundle exec rake deploy
 env:
   global:
-  - GH_REPO="your_github_name/your_github_name.github.io"
-  - secure: "b2772864962d5019b90749c7e08c5a6ad2534270"
+  - GH_REPO="forecho/blog"
+  - secure: "R3w2jXSuvAGRn2pCIIpMvmRv6ST2k2aJZ7UH7uSC0I7+VZdr099uQTzvgyyw0bvPJ6RNxzillPTAWiSQQOyZL8yHKCOVMZ5fYIsm9cFYcgunrP/RCcA3OIt9ntrfkvSBtR6NKtSJZAAfVxatQJYDciWtCU5D7MfyF/4jyTrrCmo="
