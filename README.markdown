@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/forecho/blog.png?branch=source)](https://travis-ci.org/forecho/blog)
+[![Build Status](https://travis-ci.org/forecho/blog.png?branch=master)](https://travis-ci.org/forecho/blog)
 
 
 ## What is Octopress?
