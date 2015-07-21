@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 2.0.0
-  - 1.9.3
 before_script:
   - git config --global user.name "forecho"
   - git config --global user.email "caizhenghai@gmail.com"
