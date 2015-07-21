@@ -4,7 +4,7 @@ rvm:
 before_script:
   - git config --global user.name "forecho"
   - git config --global user.email "caizhenghai@gmail.com"
-  - export REPO_URL="https://github.com/$GH_REPO.git"
+  - export REPO_URL="https://$GH_TOKEN@github.com/$GH_REPO.git"
   - bundle exec rake setup_github_pages[$REPO_URL]
   - git checkout -- _config.yml
 script:
@@ -14,4 +14,4 @@ after_script:
 env:
   global:
   - GH_REPO="forecho/blog"
-  - secure: "puhDNS9ngXQSVNkgCF55tc8dAJ7kii1gwYG7ux9yhWOh5n66OZmVKbB5/i7+N5eXWKCdzEHrp/RZswpwI9vF86gzRHUdZWc5XRKVfAEoAeJ0KFt0KIAih+OhTQYuatuAoWx4scMfTunVDhbtX5IHL9Uibh2bt5NM9D1E2IqimuT72mm/VQkJKJaByqk3Q2O6hhf6jxwlPyrndQhJTNBlnbHq3ozByunRAj6mxxfS60mhiF0atO02a5dIc+B16SNyYmxD7qXH/gYm5CmovvlPO4zSFZs7U50CqRi0oN8i2qgHO34ET69eZVnfjfFEHvkfo9GqTJhQYInxu39zLhg6o0oLMjzGelkkBpi1TkPX1UKw2pSVvdHgmG8de9gSnIJGkWgkVBJHFF3yMKFiPFPjDzKvxeK8JfbO+K7v/k5jZNThx3Q6GBa9GZmXpaYRVBtV1cPGTxQaFnFopKXWxtirrdUbIIe0lm32Mv3YkpfeDvnr9CDXd7XjApKyoMMr4W4VAsEKK+PgMerNc+gC4Uybs8du0TV/sFGMcUv2pBvn0IQiFCAsk7uxcNoMvpABQ9KD64thW99wVDsSCaD2+4lhzFtSK9uGgsPGkXw3zl/XjVBW0k7+mm3X/aimvWblC4iMdwAQNDuJ1Q29DG7fLF3QMQCX/NjE+zVCFaKvNzc9oLY="
+  - secure: Ey/zcMQ6foHssfLpl1O0YATSYXRfDLZBGiYo4r+qlLsmMwokmTK9EyfkQA1Ycyxh3nuFA0Dtn68w+rRj5NXNDK5xd0vkNWME/kHzMo/YpBlJXT0qXWZR9BTqLp88gLPTgYsAu+cBmSoxTbbpRIGL4GE4BRfdk9Tci0QnKfFtN/cS0BoVGI/NH4cCpgh7dBJ/f3k9sUR6mOWuese0BtkxsNoi3ViNFLB+ao4VuReIM6DzDSi5+1/WTiDK52t+0iVoyMorvSEDU3wpxAng7iABcti/CFFhAbg188tCvP+ZkEQUlSmZBQ4oSKNpobSLRQqmopnxZvdkagH/RPk0oth4epJmsIY+gre/HHAsj8bpAROJE/48GI3sY539FFNxy4LtrtWivfOcBF+alpAAWEER3Ktf0Qj7g0WuyGcqKaTeYApropmM5Fpukj1uibBaRyzNSihbY411f9lFzxnzHtNXjqJ0ZnZfZ70u6Oy3+IpJFxkRloiQMwWbg6mCOyKOXhhZ2mmpQu7oJFhLvb+i9QkmJ+v7LiwjBOpkPVRs40jbB078kKE17mOJyBgwKxjYqIY6ycYoJGUr+cQKynQTx67+Md35EC9lqm25a2wjHVlVpVlZ3oUO8q3EGByB1ShtLOQxhfg+a2seH4PK0NkCq7pnHPEiOZfAGIjJ+ayxPWpnDPA=
