@@ -265,7 +265,8 @@ multitask :push do
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
-    Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    Bundler.with_clean_env { system "git push origin #{deploy_branch} --force --quiet" } # hide github token
+    # Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
     puts "\n## Github Pages deploy complete"
     system "git remote add gitcafe git@gitcafe.com:forecho/forecho.git >> /dev/null 2>&1"
     system "git push -u gitcafe master:gitcafe-pages"
@@ -332,7 +333,8 @@ task :setup_github_pages, :repo do |t, args|
       # If this is a user/organization pages repository, add the correct origin remote
       # and checkout the source branch for committing changes to the blog source.
       system "git remote add origin #{repo_url}"
-      puts "Added remote #{repo_url} as origin"
+      # puts "Added remote #{repo_url} as origin"
+      puts "Added remote as origin" # don't put repo_url in travis-ci as it may contains token
       system "git config branch.master.remote origin"
       puts "Set origin as default remote"
       system "git branch -m master source"

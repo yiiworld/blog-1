@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/forecho/blog.github.io.png?branch=source)](https://travis-ci.org/forecho/blog.github.io)
+
+
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
