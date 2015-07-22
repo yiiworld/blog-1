@@ -14,7 +14,7 @@ categories: octopress travis-ci
 
 主要是利用 travis-ci 提供的持续集成服务实现的，主要分三步就搞定：
 
-1. 用 github 登录Travis-CI的网站（https://travis-ci.org/）,然后开启你要使用集成服务的项目。
+1. 用 github 登录[Travis-CI](https://travis-ci.org/),然后开启你要使用集成服务的项目。
 2. 添加 `.travis.yml` 文件（octopress 默认就有这个文件，我们修改就可以了）。
 3. 只要配置通过，当你 `git push` 的时候就会自动触发 travis-ci，后面的工作就全自动了。
 
