@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Octopress 结合 github 和 travis-ci 实现自动生成文章"
+title: "Octopress 结合 github 和 travis-ci 实现自动更新博客"
 date: 2015-7-21 17:25:53 +0800
 comments: true
 categories: octopress travis-ci
@@ -19,6 +19,7 @@ categories: octopress travis-ci
 3. 只要配置通过，当你 `git push` 的时候就会自动触发 travis-ci，后面的工作就全自动了。
 
 <!--more-->
+
 ### .travis.yml
 
 详细讲一下这个文件，我全部的时间都在测试这个。先看最终版本代码：
@@ -59,4 +60,12 @@ A: 当然可以，多个 GitHub Pages 项目可以每一个配置独立的域名
 ## 总结
 
 如果你不想依赖任何 VPS 和 虚拟空间使用一个博客的话，可以试一下我这个方法。唯一花钱的就是买一个域名。
+
+
+**参考文章:**
+
+1. [用Octopress在GitHub上搭建博客](http://wangmuy.github.io/blog/2013/09-01-octopress-setup.html)
+2. [打造Octopress博客在线写作平台](http://xuhehuan.com/1761.html)
+3. [How to Start Blogging Easily With Octopress and Teracy-dev](http://blog.teracy.com/2013/08/03/how-to-start-blogging-easily-with-octopress-and-teracy-dev/)
+4. [teracyhq/blog 项目](https://github.com/teracyhq/blog)
 
