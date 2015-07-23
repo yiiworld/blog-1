@@ -6,8 +6,8 @@ comments: true
 categories: php
 ---
 
-视图代码： 
-    
+视图代码：
+
 ```php
 <?php echo form_open_multipart('chome/do_upload');?>
 
@@ -27,7 +27,7 @@ categories: php
 </dl>
 ```
 
-CI模型中的代码如下： 之前要加载两个CI自带的类： 
+CI模型中的代码如下： 之前要加载两个CI自带的类：
 
 
 ```php
@@ -35,8 +35,8 @@ $this->load->model('mhome');
 $this->load->helper(array('form', 'url'));
 ```
 
-下面是方法： 
-    
+下面是方法：
+
 ```php
 function do_upload(){
 	$config['upload_path'] = './uploads/';//绝对路径

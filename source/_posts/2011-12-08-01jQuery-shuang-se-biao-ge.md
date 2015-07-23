@@ -3,24 +3,24 @@ layout: post
 title: "01、jQuery双色表格"
 date: 2011-12-08 14:48
 comments: true
-categories: 
+categories: javascript
 ---
 
-演示，[请点击~](http://www.nowhisky.com/jQuery/demo01.html) js代码： 
-    
-    
-    $(document).ready(function(){
-        //如果鼠标移动到class为stripe的表格的tr上时，执行函数
-    	$(".stripe tr").mouseover(function(){
-            //给这行添加class值为over并且当鼠标经过该行时执行函数
-    			$(this).addClass("over");
-    		}).mouseout(function(){
-    			$(this).removeClass("over");//移除该行的class
-    		})
-    	$(".stripe tr:even").addClass("alt");//给class为stripe的表格的偶数添加class值为alt
-    });
+js代码：
 
-知识点： 
+```javascript
+$(document).ready(function(){
+    //如果鼠标移动到class为stripe的表格的tr上时，执行函数
+    $(".stripe tr").mouseover(function(){
+        //给这行添加class值为over并且当鼠标经过该行时执行函数
+            $(this).addClass("over");
+        }).mouseout(function(){
+            $(this).removeClass("over");//移除该行的class
+        })
+    $(".stripe tr:even").addClass("alt");//给class为stripe的表格的偶数添加class值为alt
+});
+```
+知识点：
 
   * mouseover(fn) 在每一个匹配元素的mouseover事件中绑定一个处理函数。mouseover事件会在鼠标移入对象时触发。
   * mouseout(fn) 在每一个匹配元素的mouseout事件中绑定一个处理函数。mouseout事件在鼠标从元素上离开后会触发。
