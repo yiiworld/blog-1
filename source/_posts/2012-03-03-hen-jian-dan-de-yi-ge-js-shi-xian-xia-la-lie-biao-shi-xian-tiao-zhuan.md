@@ -3,12 +3,12 @@ layout: post
 title: "很简单的一个js实现下拉列表实现跳转"
 date: 2012-03-03 19:43
 comments: true
-categories: 
+categories: javascript
 ---
 
-直接上效果页面，[请猛击~](http://www.nowhisky.com/demo/select.html) 代码很简单，完整版的HTML代码，如下： 
-    
-    
+直接上效果页面，[请猛击~](http://www.nowhisky.com/demo/select.html) 代码很简单，完整版的HTML代码，如下：
+
+```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
@@ -22,17 +22,18 @@ categories:
     </select>
     </body>
     </html>
+```
 
-或者用jQuery这样写： 
-    
-    
+或者用jQuery这样写：
+
+```html
     <select id="dynamic_select">
         <option value="" selected>Pick a Website</option>
         <option value="http://www.google.com/">Google</option>
         <option value="http://www.youtube.com/">YouTube</option>
         <option value="http://www.stackoverflow.com/">Stack Overflow</option>
     </select>
-    
+
     <script>
         $(function(){
           // bind change event to select
@@ -45,6 +46,7 @@ categories:
           });
         });
     </script>
+```
 
 ## Comments
 
