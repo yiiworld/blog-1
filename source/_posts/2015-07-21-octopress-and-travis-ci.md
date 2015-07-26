@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Octopress 结合 github 和 travis-ci 实现自动更新博客"
-date: 2015-7-21 17:25:53 +0800
+date: 2015-07-21 17:25:53 +0800
 comments: true
 categories: octopress travis-ci
 ---
