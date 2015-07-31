@@ -17,7 +17,7 @@ categories: Vagrant VirtualBox 吐槽
 
 **打包自己的 vagrant**
 
-```shell
+```sh
 $ vagrant package
 [default] Attempting graceful shutdown of VM...
 [default] Clearing any previously set forwarded ports...
