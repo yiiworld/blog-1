@@ -16,4 +16,5 @@ env:
   - GH_REPO="forecho/blog"
   - secure: Ey/zcMQ6foHssfLpl1O0YATSYXRfDLZBGiYo4r+qlLsmMwokmTK9EyfkQA1Ycyxh3nuFA0Dtn68w+rRj5NXNDK5xd0vkNWME/kHzMo/YpBlJXT0qXWZR9BTqLp88gLPTgYsAu+cBmSoxTbbpRIGL4GE4BRfdk9Tci0QnKfFtN/cS0BoVGI/NH4cCpgh7dBJ/f3k9sUR6mOWuese0BtkxsNoi3ViNFLB+ao4VuReIM6DzDSi5+1/WTiDK52t+0iVoyMorvSEDU3wpxAng7iABcti/CFFhAbg188tCvP+ZkEQUlSmZBQ4oSKNpobSLRQqmopnxZvdkagH/RPk0oth4epJmsIY+gre/HHAsj8bpAROJE/48GI3sY539FFNxy4LtrtWivfOcBF+alpAAWEER3Ktf0Qj7g0WuyGcqKaTeYApropmM5Fpukj1uibBaRyzNSihbY411f9lFzxnzHtNXjqJ0ZnZfZ70u6Oy3+IpJFxkRloiQMwWbg6mCOyKOXhhZ2mmpQu7oJFhLvb+i9QkmJ+v7LiwjBOpkPVRs40jbB078kKE17mOJyBgwKxjYqIY6ycYoJGUr+cQKynQTx67+Md35EC9lqm25a2wjHVlVpVlZ3oUO8q3EGByB1ShtLOQxhfg+a2seH4PK0NkCq7pnHPEiOZfAGIjJ+ayxPWpnDPA=
 notifications:
-  webhooks: https://hooks.pubu.im/services/3wylrdl3dld7iv
+  webhooks:
+    - https://jianliao.com/v1/services/webhook/20dc86bf9bb810a0e336b245798c0247ceb96357
