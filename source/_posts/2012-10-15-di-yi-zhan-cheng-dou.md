@@ -3,7 +3,7 @@ layout: post
 title: "第一站，成都"
 date: 2012-10-15 10:46
 comments: true
-categories: 
+categories: 不跟团 旅游
 ---
 
 话说这次国庆放8天假，不好好出去玩，都对不起自己放的这8天假。
