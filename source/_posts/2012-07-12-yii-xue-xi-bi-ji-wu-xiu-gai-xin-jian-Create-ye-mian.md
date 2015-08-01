@@ -16,7 +16,7 @@ categories: yii
 
 那么我们在m文件夹中找到NewsType.php文件，在末尾加上这段代码：
 
-```
+```php
 // 获取type
 public function getNewsTypeList() {
     $newsTypeList = NewsType::model()->findAll();
@@ -31,13 +31,13 @@ public function getNewsTypeList() {
 
 然后我们找到Create所在的页面，这里是Admin/views/news/_form.php文件。 找到这段代码：
 
-```
+```php
 <?php echo $form->textField($model,'type_id',array('size'=>10,'maxlength'=>10)); ?>
 ```
 
 修改为：
 
-```
+```php
 <?php echo $form->dropDownList($model,'type_id',NewsType::model()->getNewsTypeList()); ?>
 ```
 
@@ -45,7 +45,7 @@ public function getNewsTypeList() {
 
 我们先把_form.php文件里字段相应的代码删掉。 然后去找这个表的m文件，这里是News.php文件 在末尾加上这段代码：
 
-```
+```php
 //自动添加新闻时间、状态
 protected function beforeSave()
 {
@@ -72,7 +72,7 @@ protected function beforeSave()
 
 在读取页面的m对应的文件中修改代码，这里对应的是News.php文件 我们找到下面这段代码：
 
-```
+```php
 public function relations()
 {
     // NOTE: you may need to adjust the relation name and the related
@@ -83,7 +83,7 @@ public function relations()
 
 添加修改为：
 
-```
+```php
 public function relations()
 {
     // NOTE: you may need to adjust the relation name and the related
@@ -98,14 +98,14 @@ public function relations()
 
 然后去找到要显示的页面，这里是Admin/views/news/_view.php 找到这段代码：
 
-```
+```php
 <?php echo CHtml::encode($data->type_id); ?>
 ```
 
 修改为：
 
-```
-    <?php echo CHtml::encode($data->typeName->news_type_name); ?>
+```php
+<?php echo CHtml::encode($data->typeName->news_type_name); ?>
 ```
 
 statusName也是这样修改。

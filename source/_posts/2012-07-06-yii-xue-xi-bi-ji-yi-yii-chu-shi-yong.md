@@ -13,7 +13,7 @@ categories: yii
 * yii框架需要执行命令启用，会自动生成一些基础的网页，功能。这个相对于ci来说，省事很多。但是刚开始我确实很不习惯。
 * 简单说一下怎么生成，这个问题看了介绍的时候不是很明白，还是看视频才了解的。下载yii框架找打yiic这个文件，找到文件所属位置 ，打开cmd，然后执行 ：
 
-```sh
+```
 D:
 xampp\htdocs\yii\framework\yiic webapp xampp\htdocs\yiiapp
 yes
