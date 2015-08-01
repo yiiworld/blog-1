@@ -18,17 +18,9 @@ ul#markdown-toc {
 /* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
 html {
   color: #333;
-  background: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizelegibility;
-}
-
-/* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
-html.borderbox *, html.borderbox *:before, html.borderbox *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 
@@ -43,7 +35,7 @@ audio, canvas, video {
 }
 
 /* 要注意表单元素并不继承父级 font 的问题 */
-body, button, input, select, textarea {
+body, button, input, select, textarea, p {
   font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
 }
 
@@ -57,7 +49,7 @@ blockquote {
   position: relative;
   color: #999;
   font-weight: 400;
-  border-left: 1px solid #1abc9c;
+  border-left: 1px solid #0181eb;
   padding-left: 1em;
   margin: 1em 3em 1em 2em;
 }
@@ -124,18 +116,18 @@ sub {
 
 /* 让链接在 hover 状态下显示下划线 */
 a {
-  color: #1abc9c;
+  color: #0181eb;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-a {
-  border-bottom: 1px solid #1abc9c;
+.entry-content a {
+  border-bottom: 1px solid #0181eb;
 }
 
-a:hover {
+.entry-content a:hover {
   border-bottom-color: #555;
   color: #555;
   text-decoration: none;
@@ -145,17 +137,6 @@ a:hover {
 ins, a {
   text-decoration: none;
 }
-
-/* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
- * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
- * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
- * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
- * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
- */
-u {
-  text-decoration: underline;
-}
-
 
 /* 代码片断 */
 pre, code, pre tt {
@@ -217,7 +198,7 @@ figcaption {
 }
 
 /* 保证块/段落之间的空白隔行 */
-p, pre, ul, ol, dl, form, hr, table, blockquote {
+p, pre, ul, ol, dl, form, hr, blockquote {
   margin-bottom: 1.2em
 }
 
