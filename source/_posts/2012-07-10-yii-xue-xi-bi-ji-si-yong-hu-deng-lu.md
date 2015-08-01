@@ -68,10 +68,15 @@ public function getId() {
 }
 ```
 
-在Models里面的User.php添加两个新的方法。 添加如下代码：
+在Models里面的User.php添加两个新的方法。添加如下代码：
+
 
 ```php
-//查询密码是否匹配
+/**
+ * 查询密码是否匹配
+ * @param  {[type]} $password [description]
+ * @return {[type]}           [description]
+ */
 public function validatePassword($password)
 {
     return $this->encrypt($password)===$this->password;
