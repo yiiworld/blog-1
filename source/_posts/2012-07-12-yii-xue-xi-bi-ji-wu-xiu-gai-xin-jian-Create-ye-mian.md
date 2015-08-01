@@ -17,6 +17,7 @@ categories: yii
 那么我们在m文件夹中找到NewsType.php文件，在末尾加上这段代码：
 
 ```php
+
 // 获取type
 public function getNewsTypeList() {
     $newsTypeList = NewsType::model()->findAll();
@@ -46,6 +47,7 @@ public function getNewsTypeList() {
 我们先把_form.php文件里字段相应的代码删掉。 然后去找这个表的m文件，这里是News.php文件 在末尾加上这段代码：
 
 ```php
+
 //自动添加新闻时间、状态
 protected function beforeSave()
 {
@@ -105,7 +107,7 @@ public function relations()
 修改为：
 
 ```php
-    <?php echo CHtml::encode($data->typeName->news_type_name); ?>
+<?php echo CHtml::encode($data->typeName->news_type_name); ?>
 ```
 
 statusName也是这样修改。
