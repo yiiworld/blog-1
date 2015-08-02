@@ -18,3 +18,4 @@ env:
 notifications:
   webhooks:
     - https://jianliao.com/v1/services/webhook/20dc86bf9bb810a0e336b245798c0247ceb96357
+  slack: forecho:SQsHQyf5h6ibbGJAr501gff0
