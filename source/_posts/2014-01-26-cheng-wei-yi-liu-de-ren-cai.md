@@ -12,16 +12,16 @@ categories: 总结
 
 再到后来看到了《乔布斯：遗失的访谈》，这个关于乔布斯访谈的节目，乔布斯的下面几句话对自己感触很大：
 
-> 能进入这个行业，我感到很幸运
-But what I was lucky enough to spend my life in, is like this,
-我的成功得益于我发现了许多才华横溢、不甘平庸的人才
-and so I built lots of my success of finding these truly gifted people, and not settling for B and C players, really going for A players.
-而且我发现只要召集到五个这样的人
-And I found something, I found when you get enough A players together, when you go through the incredible work to find you know 5 of these A players,
-他们就会喜欢上彼此合作的感觉，前所未有的感觉
-they really like working with each other, because they never had a chance to do that before,
-他们会不愿再与平庸者合作，只招聘一样优秀的人
-and they don’t want to work with B and C players, so they become self-policing, they only want to hire more A players.
+> 能进入这个行业，我感到很幸运  
+But what I was lucky enough to spend my life in, is like this,  
+我的成功得益于我发现了许多才华横溢、不甘平庸的人才  
+and so I built lots of my success of finding these truly gifted people, and not settling for B and C players, really going for A players.  
+而且我发现只要召集到五个这样的人  
+And I found something, I found when you get enough A players together, when you go through the incredible work to find you know 5 of these A players,  
+他们就会喜欢上彼此合作的感觉，前所未有的感觉  
+they really like working with each other, because they never had a chance to do that before,  
+他们会不愿再与平庸者合作，只招聘一样优秀的人  
+and they don’t want to work with B and C players, so they become self-policing, they only want to hire more A players.  
 
 和优秀的人工作，你进步很快，最重要的是那种工作的感觉真的是很棒，让你感觉到你不是一个人在战斗，你说的东西他们都能懂，他们说的你也感兴趣，就是这种感觉。之前看的《打造 Facebook》其中有讲到 Facebook 也是只招一流的人才。我这才恍悟过来，把自己变成一流的人才是一件多么紧急的事情啊，有更好的人才，公司为什么要选你？有现成的人才，为什么要花时间来培养你呢？
 
