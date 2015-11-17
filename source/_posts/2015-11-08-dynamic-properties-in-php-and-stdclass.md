@@ -13,7 +13,7 @@ JavaScript 和 Python 允许对象实例的动态属性。事实证明,PHP 也�
 
 看看以下代码:
 
-```php
+```
 class DynamicProperties { }
 $object = new DynamicProperties;
 print isset($object->foo) ? 't' : 'f'; // f
@@ -28,7 +28,7 @@ unset($object->foo);
 
 // Iterate through Properties and Values
 foreach($object as $property => $value)  {
-     print($property . ' = ' . $value . '<br>');
+     print($property . ' = ' . $value . '<br />');
 }
 
 // Prints:
