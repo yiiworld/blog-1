@@ -5,7 +5,6 @@ date: 2015-11-08 21:52:15 +0800
 comments: true
 categories: php
 ---
-
 > 翻译 [Dynamic Properties in PHP and StdClass](http://krisjordan.com/dynamic-properties-in-php-with-stdclass)
 
 JavaScript 和 Python 允许对象实例的动态属性。事实证明,PHP 也是如此。看官方 PHP 对象和类文档可能会导致你相信动态实例属性需要自定义 __get 和 __set 魔术方法。其实不用。
@@ -29,18 +28,18 @@ unset($object->foo);
 
 // Iterate through Properties and Values
 foreach($object as $property => $value)  {
-     print($property . ' = ' . $value . '<br />');
+     print($property . ' = ' . $value . '<br>');
 }
 
 // Prints:
 // fooz = baz
 ```
 
+<!--more-->
+
 使用内置动态实例属性的速度比使用魔法 __get 和 __set 方法快一个数量级（30倍,通过我的分析）。在 PHP 中动态属性访问时是没有回调方法。
 
 因此,什么情况下需要使用 __get 和 __set 呢？如果你需要更复杂的行为,比如需要计算属性,你必须使用__get和__set。另外，如果你不愿意让类拥有动态属性你可以使用__get和__set抛出错误。
-
-<!--more-->
 
 ## StdClass: Anonymous Objects
 
