@@ -5,6 +5,7 @@ date: 2015-11-08 21:52:15 +0800
 comments: true
 categories: php
 ---
+
 > 翻译 [Dynamic Properties in PHP and StdClass](http://krisjordan.com/dynamic-properties-in-php-with-stdclass)
 
 JavaScript 和 Python 允许对象实例的动态属性。事实证明,PHP 也是如此。看官方 PHP 对象和类文档可能会导致你相信动态实例属性需要自定义 __get 和 __set 魔术方法。其实不用。
@@ -13,24 +14,21 @@ JavaScript 和 Python 允许对象实例的动态属性。事实证明,PHP 也�
 
 看看以下代码:
 
-```
+```php
 class DynamicProperties { }
 $object = new DynamicProperties;
-print isset($object->foo) ? 't' : 'f'; // f
-
+echo isset($object->foo) ? 't' : 'f'; // f
+echo PHP_EOL;
 // Set Dynamic Properties foo and fooz
 $object->foo = 'bar';
 $object->fooz = 'baz';
-
 // Isset and Unset work
 isset($object->foo); // true
 unset($object->foo);
-
 // Iterate through Properties and Values
 foreach($object as $property => $value)  {
-     print($property . ' = ' . $value . '<br />');
+    echo $property . ' = ' . $value . PHP_EOL;
 }
-
 // Prints:
 // fooz = baz
 ```

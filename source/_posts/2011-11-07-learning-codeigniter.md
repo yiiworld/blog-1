@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CI框架学习笔记（一）"
+title: "CI 框架学习笔记（一）"
 date: 2011-11-07 14:54
 comments: true
 categories: CodeIgniter
