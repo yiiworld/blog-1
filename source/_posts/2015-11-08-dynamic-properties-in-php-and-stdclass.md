@@ -3,7 +3,7 @@ layout: post
 title: "PHP 中的动态属性和 StdClass"
 date: 2015-11-08 21:52:15 +0800
 comments: true
-categories: php
+categories: php 翻译
 ---
 
 > 翻译 [Dynamic Properties in PHP and StdClass](http://krisjordan.com/dynamic-properties-in-php-with-stdclass)
