@@ -5,6 +5,8 @@ date: 2016-01-26 15:28:58 +0800
 comments: true
 categories: 不跟团 旅游
 ---
+* list element with functor item
+{:toc}
 
 ## 前言
 
