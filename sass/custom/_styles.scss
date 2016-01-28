@@ -19,3 +19,16 @@ ul#markdown-toc {
   margin-bottom: 5px;
   vertical-align: middle;
 }
+.cc-license {
+  text-align: center;
+  font-size: 13px;
+  a {
+    white-space: nowrap;
+    img {
+      border-width: 0;
+    }
+  }
+  a:first-child {
+    text-decoration: none;
+  }
+}
