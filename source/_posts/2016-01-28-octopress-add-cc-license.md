@@ -20,7 +20,7 @@ categories: Octopress
 
 - 添加 `source/_includes/post/cc_license.html` 文件，内容可以使用我的 [cc_license.html](https://github.com/forecho/blog/blob/master/source%2F_includes%2Fpost%2Fcc_license.html)
 - 修改 `sass/custom/_styles.scss` 样式文件，添加[样式代码](https://github.com/forecho/blog/blob/master/sass%2Fcustom%2F_styles.scss#L22-L38)。
-- 修改 `source/_layouts/post.html` 布局文件，添加[代码](https://github.com/forecho/blog/blob/master/source%2F_layouts%2Fpost.html#L9-L11)。
+- 修改 `source/_layouts/post.html` 布局文件，添加[代码](https://github.com/forecho/blog/blob/master/source%2F_layouts%2Fpost.html#L12-L14)。
 - 修改 `_config.yml` 配置文件，添加[代码](https://github.com/forecho/blog/blob/master/_config.yml#L118-L136)。
 
 以上操作完成就可以了。
