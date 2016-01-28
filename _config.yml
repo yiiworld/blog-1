@@ -134,3 +134,7 @@ cc_license_allow_commercial_uses: false
 
 # icon styles? default: 'normal', options: 'normal' or 'compact'.
 cc_license_icon: 'normal'
+
+donate: true
+donate_wechat_image_link: 'http://i4.tietuku.com/5f35c1f9cf5015c1.png'
+donate_alipay_image_link: 'http://i4.tietuku.com/06ba99e33f9467db.png'

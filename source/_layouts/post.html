@@ -6,6 +6,9 @@ single: true
 <div>
 <article class="hentry" role="article">
   {% include article.html %}
+  {% if site.donate %}
+    {% include post/donate.html %}
+  {% endif %}
   {% if site.cc_license %}
     {% include post/cc_license.html %}
   {% endif %}
