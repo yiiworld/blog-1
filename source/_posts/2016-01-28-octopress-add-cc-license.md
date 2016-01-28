@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "博客添加 CC 协议"
+title: "Octopress 添加 CC 协议"
 date: 2016-01-28 13:08:58 +0800
 comments: true
 categories: Octopress
