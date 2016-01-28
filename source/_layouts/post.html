@@ -6,6 +6,9 @@ single: true
 <div>
 <article class="hentry" role="article">
   {% include article.html %}
+  {% if site.cc_license %}
+    {% include post/cc_license.html %}
+  {% endif %}
   <footer>
     <p class="meta">
       {% include post/author.html %}
@@ -23,9 +26,6 @@ single: true
         <a class="basic-alignment right" href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo;</a>
       {% endif %}
     </p>
-    {% if site.cc_license %}
-      {% include post/cc_license.html %}
-    {% endif %}
   </footer>
 </article>
 {% if site.disqus_short_name and page.comments == true %}
