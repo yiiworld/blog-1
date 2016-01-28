@@ -117,17 +117,16 @@ revision_github_repo: blog
 
 # cc license http://creativecommons.org/choose/
 
-# enable cc license?, default: nil means disabled, true to enable
-cc_license:
+# enable cc license, default: nil
+cc_license: true
 
 # allow mofiication of works? default: 'yes', options: 'yes', 'no' or 'share'
-cc_license_allow_modification: 'yes'
+cc_license_allow_modification: 'share'
 
 # allow commercial uses of your work? default: true
 cc_license_allow_commercial_uses: true
 
-# license jurisdiction? default: International
-# //TODO(hoatle): implement cc_license_license_jurisdiction
+# license jurisdiction? default: International //TODO(hoatle): implement cc_license_license_jurisdiction
 #cc_license_license_jurisdiction: International
 
 # add metadata? default: nil //TODO(hoatle): implement cc_license_metadata
