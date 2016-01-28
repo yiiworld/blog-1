@@ -121,7 +121,7 @@ revision_github_repo: blog
 cc_license: true
 
 # allow mofiication of works? default: 'yes', options: 'yes', 'no' or 'share'
-cc_license_allow_modification: 'share'
+cc_license_allow_modification: 'no'
 
 # allow commercial uses of your work? default: true
 cc_license_allow_commercial_uses: true
