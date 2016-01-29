@@ -46,9 +46,9 @@ categories: PhpStorm 工具 效率
 
 **Windows 快捷键**
 
-1. 项目名右键选择"Local History | Show History"可查看本地修改记录
+1. 项目名右键选择"Local History -> Show History"可查看本地修改记录
 2. Ctrl + E 可查看最近打开文件或项目
-3. 打开File | Setting | Editor，选择Appearance下面的Show Method Separators。它会将你的代码按方法，用灰色线框进行智能分割。你还可以使用：alt+↑或↓，在方法之间进行跳转
+3. 打开File -> Setting -> Editor，选择Appearance下面的Show Method Separators。它会将你的代码按方法，用灰色线框进行智能分割。你还可以使用：alt+↑或↓，在方法之间进行跳转
 4. Ctrl + Shift + V，可选择要粘贴的最近内容
 5. Ctrl + D，复制粘贴选中的文本
 6. Ctrl + Y，删除当前行或选中行
@@ -70,19 +70,19 @@ categories: PhpStorm 工具 效率
 
 **更换为 sublime 快捷键**
 
-因为以前用习惯了 sublime，改不过来快捷键方式了，所以但是了这个项目 https://github.com/forecho/PHPStorm-Config
+因为以前用习惯了 sublime，改不过来快捷键方式了，所以但是了这个项目 [PHPStorm-Config](https://github.com/forecho/PHPStorm-Config)
 
 
 ## 其他
 
 **视频教程**
 
-https://laracasts.com/series/how-to-be-awesome-in-phpstorm
+<https://laracasts.com/series/how-to-be-awesome-in-phpstorm>
 
 **换主题**
 
-http://daylerees.github.io/
-https://github.com/daylerees/colour-schemes
+<http://daylerees.github.io/>
+<https://github.com/daylerees/colour-schemes>
 
 添加主题：
 ```
@@ -99,6 +99,7 @@ wget https://raw.githubusercontent.com/daylerees/colour-schemes/master/jetbrains
 **更换新建文件模板**
 
 Setting -> File and Code Templates
+
 ```
 /**
 * author     : forecho <caizhenghai@gmail.com>
