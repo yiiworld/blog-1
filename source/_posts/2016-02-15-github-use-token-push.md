@@ -34,7 +34,7 @@ git config user.email "your_email"
 Google 了半天，最后终于找到解决办法，就是单独生成一个 token，Git remote 的 URL 设置成 
 
 ```sh
-git remote set-url github https://<token>@github.com/forecho/blog.git
+git remote set-url origin https://<token>@github.com/forecho/blog.git
 ```
 其中的 token 你要自己去 GitHub 生成，地址是 <https://github.com/settings/tokens>
 
