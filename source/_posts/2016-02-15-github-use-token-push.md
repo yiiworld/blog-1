@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "GitHub 单独某个项目使用 token push 提交代码"
+title: "GitHub 单独设置某个项目的配置信息"
 date: 2016-02-15 15:08:12 +0800
 comments: true
-categories: 总结
+categories: github git
 ---
 ## 场景
 
@@ -44,5 +44,5 @@ git remote set-url origin https://<token>@github.com/forecho/blog.git
 
 ## 总结
 
-出现以上原因只要是对 Git 以及 GitHub 命令不算很熟悉。
+出现以上原因只是因为对 Git 以及 GitHub 命令不算很熟悉。
 
