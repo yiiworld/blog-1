@@ -100,10 +100,10 @@ disqus_short_name: blog-forecho
 disqus_show_comment_count: true
 
 # Google Analytics
-# google_analytics_tracking_id:
+google_analytics_tracking_id: UA-75634412-1
 
 # Facebook Like
-# facebook_like: false
+facebook_like: true
 
 
 # revision options
@@ -136,5 +136,5 @@ cc_license_allow_commercial_uses: false
 cc_license_icon: 'normal'
 
 donate: true
-donate_wechat_image_link: 'http://i4.tietuku.com/5f35c1f9cf5015c1.png'
-donate_alipay_image_link: 'http://i4.tietuku.com/06ba99e33f9467db.png'
+donate_wechat_image_link: 'http://ww1.sinaimg.cn/large/4cc5f9b3gw1f2a2pb37psj2064061wf3.jpg'
+donate_alipay_image_link: 'http://ww3.sinaimg.cn/large/4cc5f9b3gw1f2a2pswyv5j206506474w.jpg'
