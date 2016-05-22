@@ -19,7 +19,7 @@ categories: 翻译 思考
 
 一个框架典型的特征就是所谓的控制反转（[inversion of control](http://martinfowler.com/bliki/InversionOfControl.html)）。框架通常扮演着组织主程序的角色和调用应用程序代码。这里是反过来的控制流——它调用我而不是我调用框架。下图说明了框架之间的关系，函数库，和应用程序。注意框架通常提供现成的功能的库，以帮助开发人员构建应用程序更快。
 
-![](http://i4.tietuku.com/60083937f051b466.png)
+![](https://segmentfault.com/img/bVtewA)
 
 开发人员使用框架最重要的原因是框架如何提高生产力和帮助提高代码质量。例如，现代的框架(例如，django)，经常提供代码生成工具或样板帮助立即启动新项目。此外，精心设计的框架内嵌安全保护措施，帮助预防开发人员犯典型的安全漏洞。
 
@@ -47,7 +47,7 @@ categories: 翻译 思考
 
 为了实现简单，一个框架应该强制执行一定数量的限制规则；同时，这些规则应以统一的方式设计和有良好的文档记录。框架执行更多的规则，陡峭的学习曲线，让开发人员很难接受。当规则是一致的，开发人员可以更快学习它们。没有文档，一个框架是无用的。因为没有人会花时间反向工程其规则。
 
- [Express.js framework](http://expressjs.com/) 框架路由语法规则的设计是一个很好的例子，一个非常受欢迎的 web 应用服务器框架。而路由在 web 应用程序中是一个重要的概念，是确定应用程序如何响应客户端请求一个特定的端点（一个HTTP方法和一个URI）。Express.js 介绍一个简单的规则来定义一个路线，`app.METHOD(PATH, HANDLER)`，`METHOD` 是一个 HTTP 请求方法(例如 GET、POST)，`PATH` 是服务器上的一个 URI 路径，`HANDLER` 是回调函数路线相匹配时要执行的。下面的代码片段显示了 Express.js 路由代码的样子。
+ [Express.js framework](http://alirizhi.com/) 框架路由语法规则的设计是一个很好的例子，一个非常受欢迎的 web 应用服务器框架。而路由在 web 应用程序中是一个重要的概念，是确定应用程序如何响应客户端请求一个特定的端点（一个HTTP方法和一个URI）。Express.js 介绍一个简单的规则来定义一个路线，`app.METHOD(PATH, HANDLER)`，`METHOD` 是一个 HTTP 请求方法(例如 GET、POST)，`PATH` 是服务器上的一个 URI 路径，`HANDLER` 是回调函数路线相匹配时要执行的。下面的代码片段显示了 Express.js 路由代码的样子。
 
 ```javascript
 var express = require('express');
@@ -77,7 +77,7 @@ app.delete('/user', function (req, res) {
 
 现代框架往往是松散耦合的体系结构。全栈框架（例如 Spring ）已经演变成由松散耦合的组件可以单独使用或与第三方交换的框架。专门的框架是有明确的契约，以支持更好的互操作性，这使得应用程序不依赖于特定的框架。例如，一个非常受欢迎的 web 路由框架的特点是所谓『Sinatra-type 框架』，如 [Sinatra](http://www.sinatrarb.com/)，[Express.js](http://expressjs.com/) 和 [Martini](http://martini.codegangsta.io/)。这些框架使用以下中间件管道架构支持请求路由和处理web应用程序。框架本身是非常小的,但开放式体系结构允许他们无限丰富的各种中间件组件。
 
-![](http://i4.tietuku.com/fd35c8a15f6c55cb.png)
+![](https://segmentfault.com/img/bVtewC)
 
 ## 一致性
 
@@ -128,7 +128,7 @@ $order->customer = $customer;
 
 许多 MVC 框架使用约定大于配置请求路由到特定的代码片断。如下图所示,[Sails.js framework](http://sailsjs.org/) 框架使用的约定，其中的 `/we/say/hi` URL请求将被路由到`controllers/we`目录下 SayController 控制器类的`hi` 动作。按照本约定，开发人员不再需要对控制器的行为定义路由规则。但是，如果开发人员想要使用一个不同的路由规则，他们仍然可以通过显式绑定一个路由到一个控制器动作。
 
-![](http://i4.tietuku.com/5435aee124617868.png)
+![](https://segmentfault.com/img/bVtewD)
 
 约定优于配置有助于减少需要编写的代码量。然而，它会给开发人员需要遵守规则引入了额外的成本。同时，也往往与前面讨论的『显示大于隐式』的哲学相冲突。事实上，虽然早期版本的 Spring 框架使用了似的 Sails.js 路由约定，Spring 现在要求开发者通过注释明确指定映射。因此，当决定是否引入新的规则以支持约定大于配置，应采取明智的判断。
 
@@ -140,9 +140,9 @@ $order->customer = $customer;
 
 Posted Dec 15, 2015 by...
 
-![](http://i4.tietuku.com/5ce7f15f21578cc7.png)
+![](https://segmentfault.com/img/bVtewE)
 **Qiang Xue**
 
- 软件工程师LEAD、技术人员
+软件工程师LEAD、技术人员
 
 
