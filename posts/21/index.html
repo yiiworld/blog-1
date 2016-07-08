@@ -1,0 +1,1324 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>forecho</title>
+  <meta name="author" content="forecho">
+
+  
+  <meta name="description" content="CI默认的rewrite url中是类似这样的，例如你的CI根目录是在/CodeIgniter/下，你的下面的二级url就类似这样http://localhost/CodeIgniter/index.php/welcome。不太好看，怎么把其中的index.php取掉呢？ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.forecho.com/posts/21/index.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="forecho" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <meta name="google-site-verification" content="OMI81_SJiESxwq-Fr0CLleoF7EzVdRx7QTQlbAfCVdI" />
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+function addBlankTargetForLinks () {
+  $('a[href^="http"]').each(function(){
+      $(this).attr('target', '_blank');
+  });
+}
+
+$(document).bind('DOMNodeInserted', function(event) {
+  addBlankTargetForLinks();
+});
+</script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-75634412-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">forecho</a></h1>
+  
+    <h2>苏格兰威士忌找不到了</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.forecho.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/about">关于我</a></li>
+  <li><a href="/archives">文章归档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/qu-diao-CodeIgniter-URL-zhong-de-index-php.html">去掉CodeIgniter URL中的index.php</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年11月14日
+        
+           | <a href="/qu-diao-CodeIgniter-URL-zhong-de-index-php.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/qu-diao-CodeIgniter-URL-zhong-de-index-php.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>CI默认的rewrite url中是类似这样的，例如你的CI根目录是在/CodeIgniter/下，你的下面的二级url就类似这样http://localhost/CodeIgniter/index.php/welcome。不太好看，怎么把其中的index.php取掉呢？</p>
+
+<ul>
+  <li>打开apache的配置文件，conf/httpd.conf ：</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">LoadModule rewrite_module modules/mod_rewrite.so</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>把该行前的#去掉。</p>
+
+<p>搜索 AllowOverride None（配置文件中有多处），看注释信息，将相关.htaccess的该行信息改为AllowOverride All。</p>
+
+<ul>
+  <li>在CI的根目录下，即在index.php，system的同级目录下，建立.htaccess，直接建立该文件名的不会成功，可以先建立记事本文件，另存为该名的文件即可。内容如下（CI手册上也有介绍）：</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">RewriteEngine on
+</span><span class="line">RewriteCond $1 !^(index\.php|images|robots\.txt)
+</span><span class="line">RewriteRule ^(.*)$ /index.php/$1 [L]</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>如果文件不是在www的根目录下，例如我的是：http://www.nowamagic.net/CodeIgniter/，第三行需要改写为</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">RewriteRule ^(.*)$ /CodeIgniter/index.php/$1 [L]</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>另外，我的index.php的同级目录下还有js文件夹和css文件夹，这些需要过滤除去，第二行需要改写为：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">RewriteCond $1 !^(index\\.php|images|js|css|robots\\.txt)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>将CI中配置文件（system/application/config/config.php）中$config[‘index_page’] = “index.php”;改成$config[‘index_page’] = “”; 。</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">/*
+</span><span class="line">|--------------------------------------------------------------------------
+</span><span class="line">| Index File
+</span><span class="line">|--------------------------------------------------------------------------
+</span><span class="line">|
+</span><span class="line">| Typically this will be your index.php file, unless you've renamed it to
+</span><span class="line">| something else. If you are using mod_rewrite to remove the page set this
+</span><span class="line">| variable so that it is blank.
+</span><span class="line">|
+</span><span class="line">*/
+</span><span class="line">$config['index_page'] = '';</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>ok，完成。还要记得重启apache。 就这么简单，好好体验CI吧～</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/26-sui-de-shi-hou-ni-zheng-zai-zuo-shen-me-xiang-yao-zuo-shen-me.html">26岁的时候你正在做什么？想要做什么？</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年11月08日
+        
+           | <a href="/26-sui-de-shi-hou-ni-zheng-zai-zuo-shen-me-xiang-yao-zuo-shen-me.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/26-sui-de-shi-hou-ni-zheng-zai-zuo-shen-me-xiang-yao-zuo-shen-me.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>本文是知乎用户对于“26岁的时候你正在做什么？想要做什么？”这个问题做出的回答。小编特地精选其中部分，以飨读者。</strong> <strong>刘存栋 一个Android工程师</strong> 刚刚过了24岁生日没多久，思考一下关于26岁的故事。</p>
+
+<p>曹操26岁，已经是洛阳北部尉，相当于今天的北京市公安局副局长；</p>
+
+<p>周瑜26岁，已经是建威中郎将，自此人称周郎，领兵四方，相当于今天的国防部副部长；</p>
+
+<p>诸葛亮26岁，刚刚接受刘备给的Offer准备出山打天下；</p>
+
+<p>曾国藩26岁，还在不停的读书、写文章、考功名，2年后才中进士；</p>
+
+<p>李鸿章26岁，刚刚考中进士，全国第26名；</p>
+
+<p>潘石屹26岁，已经在海南炒房赚下一大笔钱；</p>
+
+<p>张朝阳26岁，在美国麻省理工读博士；</p>
+
+<p>丁磊26岁，刚刚创办网易，并开始为之奋斗；</p>
+
+<p>马云26岁，在杭州电子科技大学教英文，9年后创办阿里巴巴；</p>
+
+<p>马化腾26岁，在一个科技公司当程序员，一年之后他将辞职创办腾讯公司；</p>
+
+<p>韩寒26岁，已经凭借自己犀利的文风登上了美国时代杂志封面； </p>
+
+<p>我今年24岁</p>
+
+<p>已经在北京漂了3年；</p>
+
+<p>没换过工作，在一个规模还算大的软件公司历任</p>
+
+<p>Java</p>
+
+<p>Web</p>
+
+<p>开发实习生、Java</p>
+
+<p>Web</p>
+
+<p>开发攻城师、Android开发攻城师等职；</p>
+
+<p>3年的程序员生活，让我变的不习惯外面杂乱的生活，爱上了这宁静的Coding生活；</p>
+
+<p>蚁族，无房、无车，每天上班要</p>
+
+<p>公交车——地铁—— 公交车，历时一个小时；</p>
+
+<p>通过各种机会，去过了河南、河北、辽宁、西安、上海，渴望去更多的地方。</p>
+
+<p>在一个公司呆了3年，有点厌倦，仿佛少了刚毕业时的激情，每天叫醒我的不是梦想，而是闹铃和闹铃以及闹铃；</p>
+
+<p>喜欢豆瓣、喜欢微博、喜欢读书，有一大堆文史类、程序类书籍，同样也喜欢电影，总觉得有很多经典的电影为什么一直没时间看。。</p>
+
+<p>最近正在思索下一步该做些什么；</p>
+
+<p>26岁的时候？</p>
+
+<p>希望我还在Coding，能带一个Team，做出一个100W用户的产品；</p>
+
+<p>每周写一篇技术文章，分享知识；</p>
+
+<p>能够去更多的地方，读更多的书，看更多精彩的电影；</p>
+
+<p>能够按时锻炼身体，让颈椎、腰椎不要衰老的那么的快；</p>
+
+<p>希望依然还有那种可以找TA借钱、可以借给TA钱的朋友；</p>
+
+<p>对未来继续抱有希望，不让在乎我的人失望，不要在不知不觉中成为一个我鄙视的那种人；</p>
+
+<p>悟已往之不谏，知来着之可追~</p>
+
+<p>**吴晨 ，是产品经理,更是心理学爱好者.</p>
+
+<p>爱听广播,</p>
+
+<p>爱…**</p>
+
+<p>今年26岁零2月多</p>
+
+<p>在互联网界混了5年</p>
+
+<p>在帝都一家值得尊敬的跨国企业工作</p>
+
+<p>在考虑如何治疗自己的颈椎和腰椎</p>
+
+<p>在考虑怎么抽时间增加更多的体育锻炼</p>
+
+<p>在考虑周末该和谁约会</p>
+
+<p>在考虑还应该和哪些人聚餐吃饭</p>
+
+<p>在考虑没车没房怎么结婚</p>
+
+<p>在考虑自己私下鼓捣的网站什么时候上线</p>
+
+<p>在考虑应该怎么通过股票和其他理财产品更好的管理自己的钱</p>
+
+<p>在考虑怎么更好的跟身边的朋友们更happy的生活</p>
+
+<p>在考虑怎么才能移民到国外</p>
+
+<p>在考虑怎么学好第二外语</p>
+
+<p>在考虑下月的旅行该带点什么纪念品</p>
+
+<p>准备多少预算</p>
+
+<p>在考虑怎么让自己的工作体现价值</p>
+
+<p>在考虑怎么赢得同事的信任</p>
+
+<p>在考虑当自己30岁的时候会不会还能回到知乎看看我今天发的这些文字</p>
+
+<p>就在今天,</p>
+
+<p>还在为给自己人生最多影响的人离开了苹果而失落了几小时</p>
+
+<p><strong>李淼：对冲基金策略分析师，兴趣包括自然科学，历史，管理学，金融学，神秘学，炼金术（！）。在一桥和HEC读MBA，在亚洲排名前十的对冲基金实习，混迹于羊肉串和涮锅之间。</strong></p>
+
+<p>26岁的时候：</p>
+
+<p>工作了4年，跳了一次槽，升过两次职，带了小团队，但是觉得还是很没意思：因为觉得所处的行业看不到希望，公司纯粹属于夹缝里混口饭吃的企业，没有激情没有热情。</p>
+
+<p>恋爱走到了不谈婚论嫁就会被指耍流氓的阶段。</p>
+
+<p>没有存款。</p>
+
+<p>房子按揭。</p>
+
+<p>朋友很多。</p>
+
+<p>决定去留学读商学院，换个环境，换个思路，换个行业。</p>
+
+<p>准备了1年，走了。</p>
+
+<p>后来：</p>
+
+<p>开始了金融行业的工作，在学习和实践中寻找激情和热情。</p>
+
+<p>婚了。</p>
+
+<p>开始存钱。</p>
+
+<p>房子仍然按揭中。</p>
+
+<p>朋友变少了，因为失去联系方式。</p>
+
+<p>需要网络，求朋友。</p>
+
+<p>在知乎里边玩边学。</p>
+
+<p><strong>鲁布</strong></p>
+
+<p>1、工作了5年，ms很多人觉得很好的gwy，可是却觉得太稳定，且和理想渐行渐远，没有激情没有热情，所以9月份准备折腾一次，希望一切好运。</p>
+
+<p>2、恋爱处于间隔年，给自己一段时间好好和自己谈谈。</p>
+
+<p>3、房子是个loft，明年交房，商贷中。</p>
+
+<p>4、朋友算是很多，但是交心的ms又离得很远。</p>
+
+<p>5、年初被表姐说太胖了，所以花了近2个月的时间减肥，基本还算成功。下来了20+斤的脂肪。</p>
+
+<p>6、第一次出国愿望年初达成，虽然是去了泰国，但突然想继续多看看世界了。</p>
+
+<p>7、在豆瓣上认识了好多朋友，大家一起开了家咖啡店，9月就要开业，第一次做实业也学会了很多很多，而且我们80个股东，民主制度的建立对于这个小团体的运作妙不可言。</p>
+
+<p>8、觉得去追梦去，换个国家呆着，多看看世界，多挣点银子。</p>
+
+<p><strong>王娟</strong></p>
+
+<p>26岁零8个月。大龄女青年了。</p>
+
+<p>1、互联网行业工作4年，跳过两次槽，今天第一天在新公司报道，离开了测试行业转做产品。从纯软件到电商，从测试到产品，我却越来越迷茫。互联网真的是我喜欢的吗？我自己也不知道….我觉得自己的人生就是一个折腾再加另一个折腾。东拼西凑。倒也不是不喜欢现在的工作，但总觉得少了那么一点激情。不知什么时候，我才能真正找到心中所爱?</p>
+
+<p>2、一个人的生活有时很简单，有时也很疲惫。尤其没有固定的居所时，好似流浪。身边有着一大帮单纯的朋友，跟他们在一起总有无限的快乐。但日子终究要自己过。真的很希望，不久，找到一个可以依靠的肩膀，让我不再害怕</p>
+
+<p>3、旅行，去外边走走，不变的追求。看看外边的世界，感受自己的渺小。挺好</p>
+
+<p>4、坚持公益，助人助己。</p>
+
+<p><strong>康永胜</strong></p>
+
+<p>跨过25，正在26，算是进入20岁年华的后半段了。蓦然回首，自己不过是茫茫众生中的普通一员，写过代码，作过项目经理，产品经理，现在正在创业。</p>
+
+<p>事业上算是到了一个门槛，不成功便成仁；</p>
+
+<p>收入上也到了一个门槛，突破不易，如果不赚得第一桶金，估计就要走下坡路了；</p>
+
+<p>爱情方面，虽然感情已经由爱情过渡到了亲情，但是毕竟没有跨入殿堂，终究还是要面对。</p>
+
+<p>准备努力到30～35岁，如果到时候还是没什么成就，就换个生活态度，卷铺盖回老家，过与世无争的安逸生活。</p>
+
+<hr />
+
+<p>我现在21岁了，还没毕业，大三没读了，暑假出来实习就没回去上课了，一直到现在。</p>
+
+<p>所在的公司呢？是个创业型的小公司，刚开始干着挺有激情的，现在感觉有点累了，不过，还是要挺住，多学习一点东西。</p>
+
+<p>26岁的时候，我希望能有着一群朋友，然后我们组成一个团队，有着一个共同的梦想，那时候的我们正在为之而奋斗，像《海贼王》中的路飞他们团队。</p>
+
+<p>26岁的时候，我希望我希望我的父母、弟弟、爷爷、以及身边的亲人、朋友身体都很健康。</p>
+
+<p>26岁的时候，我希望我也能做出一个百万级用户的互联网产品出来，至于做什么，我现在都还在想。</p>
+
+<p>26岁的时候，我希望我已经找到了一个能懂我的女生。</p>
+
+<p>26岁的时候，我想我已经创业了。</p>
+
+<p>26岁的时候。。。。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/learning-codeigniter.html">CI 框架学习笔记（一）</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年11月07日
+        
+           | <a href="/learning-codeigniter.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/learning-codeigniter.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+  <li><strong>模型(Model)</strong>代表你的数据结构。通常来说，你的模型类将包含取出、插入、更新你的数据库资料这些功能。 （操作数据库）</li>
+  <li><strong>视图(View)</strong>是展示给用户的信息。一个视图通常是一个网页，但是在 CodeIgniter 中，一个视图也可以是一个页面片段，如页头、页尾。它还可以是一个 RSS 页面，或任何其它类型的“页面”。（前台页面）</li>
+  <li><strong>控制器(Controller)</strong>是模型、视图以及其他任何处理 HTTP 请求所必须的资源之间的_中介_，并生成网页。 （链接两者）
+    <ol>
+      <li>模型文档名字如果与数据库重名则不能使用常规方法使用写。</li>
+      <li>控制器里面，一个方法代表一个页面。</li>
+      <li>自动加载数据库：在autoload.php中写入代码（42行）</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="nv">$aotoload</span><span class="p">[</span><span class="s1">&#39;libraries&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>设定相对路径前面的前缀：（放在header.php文件title下面）</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="o">&lt;</span><span class="nx">base</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&lt;?php echo base_url();?&gt;&quot;</span><span class="o">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>获取变量：（3代表index.php之后的第三个参数）</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uri</span><span class="o">-&gt;</span><span class="na">segment</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p><img src="http://ww4.sinaimg.cn/large/4cc5f9b3gw1er6jtfbcgjj20g005cwf0.jpg" alt="" /></p>
+
+<ol>
+  <li>config.php下的代码（266行）(如果为 true 则开启：自动防止攻击。)</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;global_xss_filtering&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/yi-ge-xing-qi-you-guo-qu-le.html">一个星期又过去了</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年11月06日
+        
+           | <a href="/yi-ge-xing-qi-you-guo-qu-le.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/yi-ge-xing-qi-you-guo-qu-le.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上班有时候觉得时候过得很快，但是每天下来觉得还是很累，眼睛疼。单休已经满足不了大家了，公司请假的人也多了点。一天时间根本就啥都不能干。周末一觉醒来都中午了，二姐约我去归元寺我都没时间去，就一个字“累”。抱怨完毕。</p>
+
+<p>这个星期开始两天的时候把“<a href="http://www.51mmg.net">长乐众合</a>”这个单子做完了。简单说一下“<a href="http://www.51mmg.net">长乐众合</a>”这个单子，这是个O2C模式的电子商务网站，专门卖一些贵金属之类的东西，VIP模式，你必需是VIP才能看到详细的资料，与之交易。</p>
+
+<p>做完之后我看一下PHP的类，以及面向对象的知识。开始学习CI框架。之前公司有些同事已经开始学习了。</p>
+
+<p>看了一天的文档，眼睛都看花了。其实看帮助文档是件很累人的事，特别是对于我来说。</p>
+
+<p>第二天我就开始找个网站写写了。这样应该学习的快一些。</p>
+
+<p>昨天蛋疼的吧“<a href="http://www.niyabizui.com">你丫闭嘴</a>”的域名给买下来了，你说这个域名做什么好呢？</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/san-ge-yue-lai-wo-de-zuo-pin-yi-ji-zong-jie.html">三个月来我的作品、以及总结</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月16日
+        
+           | <a href="/san-ge-yue-lai-wo-de-zuo-pin-yi-ji-zong-jie.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/san-ge-yue-lai-wo-de-zuo-pin-yi-ji-zong-jie.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">首先我的第一个作品</h2>
+
+<p>项目：外卖网。</p>
+
+<p>名称：随时有。</p>
+
+<p>网址是：http://www.suishijiuyou.com</p>
+
+<p>参与人员：许东、陈小霞、我</p>
+
+<p>总结：</p>
+
+<p>前台和后台都是我们三个人做的，我主要做了一下首页靠左的那边，然后就是等餐游戏的前台。然后我就开始做后台管理员的页面了。后台主要都是我做的。</p>
+
+<p>然后这个项目做下来，发现很多问题，可能就因为我们的第一个项目吧，毕竟在学校里学的东西都还是比较少的。特别是我们几个都不擅长与JS。有几个功能做的很头疼。</p>
+
+<ol>
+  <li>
+    <p>关于多重筛选问题。</p>
+  </li>
+  <li>
+    <p>关于客户要的餐车效果。这个效果不错，但是是js效果，对我们来说很难做到。</p>
+  </li>
+  <li>
+    <p>关于后台自动提醒问题，这个问题我们好像现在都没解决。</p>
+  </li>
+  <li>
+    <p>关于地图API调用，数据使用。</p>
+  </li>
+</ol>
+
+<p>总之，第一个单子做下来，真的很不容易。网站的访问速度也有问题。</p>
+
+<h2 id="section-1">第二个：</h2>
+
+<p>项目：外汇类的网站改版。</p>
+
+<p>名称：长江一号。</p>
+
+<p>网站：http://www.whcjyh.com</p>
+
+<p>参与人：谢盼盼、熊威、我</p>
+
+<p>总结：</p>
+
+<p>网站前台是由他们两个新来的员工写的，由于这个网站是改版，基本上就只是改了一个首页，加了两三个功能，加了一个flash。效果图是我做的。当然也有遇到问题。</p>
+
+<ol>
+  <li>
+    <p>首页写前台的，没有配合好，标签混乱，命名混乱。CSS也比较混乱，后来才发现他们是用视图做的。重要的是有些DIV还限制高度了，有些图片竟然是背景，放在CSS里面了，这严重导致后台人员的效率。</p>
+  </li>
+  <li>
+    <p>首页有一组数据是实时更新的，并且这个数据是使用的别人的网站的，这个我还是一个次做。当时是找别人做的，现在我还不会。</p>
+  </li>
+  <li>
+    <p>我写后台的时候，没考虑到IE8了，光看IE6和火狐了，有一个标签的使用，IE8好像不支持，后来交单了，客户才给我反映，我才知道。这个下次注意。</p>
+  </li>
+</ol>
+
+<p>不过这个客户倒是挺爽快的。</p>
+
+<h2 id="section-2">第三个：</h2>
+
+<p>项目：抽奖，购物</p>
+
+<p>名称：淘乐惠</p>
+
+<p>参与人员：差不多公司的技术人员都有参与。</p>
+
+<p>网站：暂时没有，项目还没有正式完成，但基本上OK了，正在完善。</p>
+
+<p>总结：</p>
+
+<p>这个网站我只是负责了，用户的个人中心和商家的个人中心，前台链接数据库以及操作。商家和用户的权限问题。这个项目还没做完，等做完整理一下，再补充。</p>
+
+<h2 id="section-3">第四个：</h2>
+
+<p>项目：租车</p>
+
+<p>名称：神宇租车</p>
+
+<p>网站：http://www.whsyzc.cn</p>
+
+<p>参与人员：康利民、张忠鹏、我</p>
+
+<p>总结：</p>
+
+<p>这个网站康利民负责前台，张忠鹏负责前台的后台，我负责管理员的后台。</p>
+
+<ol>
+  <li>
+    <p>有一个添加门店的功能，并且这个有附带地图的，我们嵌入了百度地图一个页面，然后让管理员添加，这个功能我是第一个使用，学到了一些东西。关于转义字符的。</p>
+  </li>
+  <li>
+    <p>还有一个问题，就是有带图片的资料需要修改的时候必要要重新上传图片，无论你是否要修改图片，这个问题我还没有找到解决的方法。</p>
+  </li>
+</ol>
+
+<h2 id="section-4">第五个：</h2>
+
+<p>项目：地区性门户网站</p>
+
+<p>名称：众讯</p>
+
+<p>网站：还没做好。</p>
+
+<p>参与人员：公司的技术本基本上都有参与</p>
+
+<p>总结：</p>
+
+<p>我只负责了一下论坛的功能，我直接下了个Discuz</p>
+
+<p>论坛，挂上去了，但有一个问题，我必须要考虑到，用户同步登陆，退出功能。这个功能我查了很多资料，还需</p>
+
+<p>要进一步解决。同样这个大项目还没有完成。</p>
+
+<p><strong>以上就是我三个月做的一些项目，确实学到了很多东西，比在学校要学到的多，认识到自己技术的欠缺，还需要进步，还需要学习js、JQ。以后尽量做一个项目就整理一下总结。</strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/jQuery-er-ji-lian-dong.html">jQuery 二级联动</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月14日
+        
+           | <a href="/jQuery-er-ji-lian-dong.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/jQuery-er-ji-lian-dong.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>公司JS做的一个效果，二级联动 获取第二个value的值。 下面是js代码。</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;js/jquery-1.6.2.min.js&quot;</span><span class="o">&gt;</span><span class="c1">// &lt;![CDATA[</span>
+</span><span class="line"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">currentShowCity</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#province&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">       <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+</span><span class="line">	   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#province option&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">o</span><span class="p">){</span>
+</span><span class="line">		   <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">)){</span>
+</span><span class="line">			   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</span><span class="line">			   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+</span><span class="line">			   <span class="nx">currentShowCity</span><span class="o">=</span><span class="nx">i</span><span class="p">;</span>
+</span><span class="line">			   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city:eq(&quot;</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">			     <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city:eq(&quot;</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">&quot;) option&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">o</span><span class="p">){</span>
+</span><span class="line">				    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">)){</span>
+</span><span class="line">					  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">());</span>
+</span><span class="line">                       <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#value&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">());</span>
+</span><span class="line">					<span class="p">}</span>
+</span><span class="line">				 <span class="p">})</span>
+</span><span class="line">			   <span class="p">})</span>
+</span><span class="line">		   <span class="p">}</span>
+</span><span class="line">	   <span class="p">});</span>
+</span><span class="line">   <span class="p">});</span>
+</span><span class="line">   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#province&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">();</span>
+</span><span class="line"><span class="p">});</span>
+</span><span class="line"><span class="kd">function</span> <span class="nx">getSelectValue</span><span class="p">(){</span>
+</span><span class="line">	<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;1级=&quot;</span><span class="o">+</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#province&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">());</span>
+</span><span class="line">	<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">o</span><span class="p">){</span>
+</span><span class="line">		 <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="nx">currentShowCity</span><span class="p">){</span>
+</span><span class="line">			<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;2级=&quot;</span><span class="o">+</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.city&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">val</span><span class="p">());</span>
+</span><span class="line">		 <span class="p">}</span>
+</span><span class="line">    <span class="p">});</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="c1">// ]]&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>下面是html代码。</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;province&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">selected=</span><span class="s">&quot;selected&quot;</span><span class="nt">&gt;</span>----请选择省份----<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>北京<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>上海<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>江苏<span class="nt">&lt;/option&gt;</span>
+</span><span class="line"><span class="nt">&lt;/select&gt;</span>
+</span><span class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">&quot;city&quot;</span> <span class="na">style=</span><span class="s">&quot;display: inline-block;&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>----请选择----<span class="nt">&lt;/option&gt;</span>
+</span><span class="line"><span class="nt">&lt;/select&gt;</span>
+</span><span class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">&quot;city&quot;</span> <span class="na">style=</span><span class="s">&quot;display: none;&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>----请选择----<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span>预定流程<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;21&quot;</span><span class="nt">&gt;</span>预定演示<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;22&quot;</span><span class="nt">&gt;</span>服务时间<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;23&quot;</span><span class="nt">&gt;</span>注意事项<span class="nt">&lt;/option&gt;</span>
+</span><span class="line"><span class="nt">&lt;/select&gt;</span>
+</span><span class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">&quot;city&quot;</span> <span class="na">style=</span><span class="s">&quot;display: none;&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>----请选择----<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;24&quot;</span><span class="nt">&gt;</span>会员章程<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;25&quot;</span><span class="nt">&gt;</span>入会资格<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;26&quot;</span><span class="nt">&gt;</span>会员优惠<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;27&quot;</span><span class="nt">&gt;</span>会员申请<span class="nt">&lt;/option&gt;</span>
+</span><span class="line"><span class="nt">&lt;/select&gt;</span>
+</span><span class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">&quot;city&quot;</span> <span class="na">style=</span><span class="s">&quot;display: none;&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option&gt;</span>----请选择----<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;28&quot;</span><span class="nt">&gt;</span>儿童座椅<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;29&quot;</span><span class="nt">&gt;</span>GPS<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;30&quot;</span><span class="nt">&gt;</span>送车上门<span class="nt">&lt;/option&gt;</span>
+</span><span class="line">	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;31&quot;</span><span class="nt">&gt;</span>异店还车<span class="nt">&lt;/option&gt;</span>
+</span><span class="line"><span class="nt">&lt;/select&gt;</span>
+</span><span class="line"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&quot;value&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;input</span> <span class="na">onclick=</span><span class="s">&quot;getSelectValue();&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;点我&quot;</span> <span class="nt">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>效果演示代码请猛击 <a href="http://www.nowhisky.com/demo/2liandong.html">这里~~~~</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/PHP-yu-ju-zai-MySQL-cha-ru-HTML-yu-ju.html">PHP语句在MySQL插入HTML语句</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月11日
+        
+           | <a href="/PHP-yu-ju-zai-MySQL-cha-ru-HTML-yu-ju.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/PHP-yu-ju-zai-MySQL-cha-ru-HTML-yu-ju.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我们需要做一个后台能手动插入 百度地图的界面。就是<a href="http://dev.baidu.com/wiki/static/map/API/tool/creatMap/">http://dev.baidu.com/wiki/static/map/API/tool/creatMap/</a></p>
+
+<p>问题是我们要做一个给用户使用的，能自行添加的功能。 于是我们用iframe方法把百度这个也没调用过来了，现在关键是要把代码写入MySQL数据库了，我发现怎么写也写入不了。 于是在网上查了一些资料，自己尝试。发现需要转义字符串。 <strong>与PHP字符串转义相关的配置和函数如下：</strong></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="mf">1.</span><span class="nb">magic_quotes_runtime</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">2.</span><span class="nx">magic_quotes_gpc</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">3.</span><span class="nb">addslashes</span><span class="p">()</span><span class="nx">和stripslashes</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">4.</span><span class="nb">mysql_escape_string</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">5.</span><span class="nb">addcslashes</span><span class="p">()</span><span class="nx">和stripcslashes</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">6.</span><span class="nb">htmlentities</span><span class="p">()</span> <span class="nx">和html_entity_decode</span><span class="p">()</span>
+</span><span class="line">
+</span><span class="line"><span class="mf">7.</span><span class="nb">htmlspecialchars</span><span class="p">()</span><span class="nx">和htmlspecialchars_decode</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>我用的是第3个，OK成功了。</p>
+
+<p>其中，我们犯了一个错误，我们用JQ传值，把百度地图获得的代码放在input里面，结果input所获得的值是只能为一行，而我们获得的值，其中有用“//”注释，结果JS代码全给注释掉了。而且有些JS代码必需要换行，不然好报错。</p>
+
+<p>那么发现问题的根本原因，剩下的就好解决。</p>
+
+<p>花了差不多一天的时间，获得经验。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/ping-guo-she-ji-shi-de-bo-ke-shou-ji-hui-zong.html">苹果设计师的博客收集汇总</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月09日
+        
+           | <a href="/ping-guo-she-ji-shi-de-bo-ke-shou-ji-hui-zong.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/ping-guo-she-ji-shi-de-bo-ke-shou-ji-hui-zong.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>苹果<strong>apple</strong>产品最让人喜欢的就是它的用户体验和设计，我从网上看到一篇帖子收集了这些离职和在职的牛逼的苹果设计师们。 在职：</p>
+
+<ul>
+  <li>Rich Dellinger：原Palm主设计师，现苹果资深UI设计 <a href="http://www.richd.com/">http://www.richd.com/</a></li>
+  <li>Louie Mantia：原Iconfactory设计师 <a href="http://www.mantia.me/">http://www.mantia.me/</a></li>
+  <li>Bob Baxley：Apple Online Store设计主管 <a href="http://www.baxleydesign.com/">http://www.baxleydesign.com/</a></li>
+  <li>Level Studios：苹果的第三方设计公司 <a href="http://www.level-studios.com/%C2%A0">level-studios.com/ …</a></li>
+  <li>Na’ Wong：来自香港的图形界面设计师 <a href="http://www.nadesign.net/">http://www.nadesign.net/</a></li>
+  <li>Everaldo Coelho：来自巴西的前YellowIcon创始人 <a href="http://www.everaldo.com/">http://www.everaldo.com/</a></li>
+  <li>Shin Nishibori：来自日本的工业设计师 <a href="http://www.shinproducts.com/">http://www.shinproducts.com</a></li>
+  <li>Rob Janoff：苹果原始商标设计师，现在似乎到处演讲中 <a href="http://www.robjanoff.com/">http://www.robjanoff.com/</a></li>
+  <li>Sascha Höhne：UI设计师 <a href="http://www.rad-e8.com/">http://www.rad-e8.com/</a>
+离职：</li>
+  <li>Clement Mok：82 – 88年创业总监 <a href="http://www.clementmok.com/">http://www.clementmok.com/</a></li>
+  <li>Mike Matas：现在是Push Pop Press创始人 <a href="http://www.mikematas.com/">http://www.mikematas.com/</a></li>
+  <li>Wilson Miner：已跳槽到Rdio，曾设计Apple.com，Django框架设计者 <a href="http://www.wilsonminer.com/">http://www.wilsonminer.com/</a></li>
+  <li>Robert Andersen：曾设计Me.com <a href="http://www.implodr.com/">http://www.implodr.com/</a></li>
+  <li>Clement Mok：已离职 <a href="http://www.clementmok.com/">http://www.clementmok.com/</a></li>
+  <li>Rich Dellinger：原Palm主设计师 <a href="http://www.richd.com/">http://www.richd.com/</a></li>
+  <li>Mike Matas：已转职摄像师 <a href="http://www.mikematas.com/">http://www.mikematas.com/</a></li>
+  <li>Louie Mantia：原Iconfactory设计师 <a href="http://www.mantia.me/">http://www.mantia.me/</a></li>
+  <li>Wilson Miner：已跳槽到Rdio <a href="http://www.wilsonminer.com/">http://www.wilsonminer.com/</a></li>
+  <li>Rob Janoff：苹果原始商标设计师 <a href="http://www.robjanoff.com/">http://www.robjanoff.com/</a></li>
+  <li>Robert Andersen：做过Mobile Me <a href="http://www.implodr.com/">http://www.implodr.com/</a></li>
+  <li>Bob Baxley：做过Apple Online Store <a href="http://www.baxleydesign.com/">http://www.baxleydesign.com/</a></li>
+  <li>Level Studios：苹果的第三方设计公司 <a href="http://www.level-studios.com/">http://www.level-studios.com/</a></li>
+</ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/guo-nei-bi-jiao-you-xiu-de-UED-tuan-dui-hui-zong.html">国内比较优秀的UED团队汇总</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月09日
+        
+           | <a href="/guo-nei-bi-jiao-you-xiu-de-UED-tuan-dui-hui-zong.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/guo-nei-bi-jiao-you-xiu-de-UED-tuan-dui-hui-zong.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>国内有许多互联网产品UED团队。这里汇总了这些优秀团队网站。我们能了解这些优秀团队的设计方法和设计思想。 <img src="http://web.cndesign.com/upload/works/20110811_CF0C1634486527582812500.png" alt="" /></p>
+
+<p><strong>腾讯系</strong></p>
+
+<ul>
+  <li><a href="http://cdc.tencent.com/">http://cdc.tencent.com/</a></li>
+  <li><a href="http://isd.tencent.com/">http://isd.tencent.com/</a></li>
+  <li><a href="http://wsd.tencent.com/">http://wsd.tencent.com/</a></li>
+  <li><a href="http://flashteam.tencent.com/">http://flashteam.tencent.com/</a></li>
+  <li><a href="http://tgideas.qq.com/">http://tgideas.qq.com/</a></li>
+</ul>
+
+<p>阿里系</p>
+
+<ul>
+  <li><a href="http://ued.taobao.com/">http://ued.taobao.com/</a></li>
+  <li><a href="http://ued.alipay.com/">http://ued.alipay.com/</a></li>
+  <li><a href="http://www.aliued.com/">http://www.aliued.com/</a></li>
+  <li><a href="http://www.aliued.cn/">http://www.aliued.cn/</a></li>
+  <li><a href="http://ued.alimama.com/">http://ued.alimama.com/</a></li>
+  <li><a href="http://ued.koubei.com/">http://ued.koubei.com/</a></li>
+</ul>
+
+<p><strong>百度系</strong></p>
+
+<ul>
+  <li><a href="http://www.baiduux.com/">http://www.baiduux.com/</a></li>
+  <li><a href="http://mux.baidu.com/">http://mux.baidu.com/</a></li>
+</ul>
+
+<p><strong>网易系</strong></p>
+
+<ul>
+  <li><a href="http://uedc.163.com/">http://uedc.163.com/</a></li>
+  <li><a href="http://www.ued163.com/">http://www.ued163.com/</a></li>
+  <li><a href="http://ucd.blog.163.com/">http://ucd.blog.163.com/</a></li>
+</ul>
+
+<p><strong>其他</strong></p>
+
+<ul>
+  <li><a href="http://ued.sina.com/">http://ued.sina.com/</a></li>
+  <li><a href="http://www.sndaued.com/">http://www.sndaued.com/</a></li>
+  <li><a href="http://ued.sohu.com/">http://ued.sohu.com/</a></li>
+  <li><a href="http://ued.iciba.com/">http://ued.iciba.com/</a></li>
+  <li><a href="http://ued.ctrip.com/">http://ued.ctrip.com/</a></li>
+  <li><a href="http://www.kdued.com/">http://www.kdued.com/</a></li>
+  <li><a href="http://ued.5173.com/">http://ued.5173.com/</a></li>
+  <li><a href="http://blog.19ued.com/">http://blog.19ued.com/</a></li>
+</ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/san-ge-yue-yi-lai-de-zong-jie.html">三个月以来的总结</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2011年10月09日
+        
+           | <a href="/san-ge-yue-yi-lai-de-zong-jie.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/san-ge-yue-yi-lai-de-zong-jie.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>三个月前的今天，没错，很巧的是今天，我带着一份简历去光谷面试PHP程序员的一份工作，也就是我现在的这个公司。</p>
+
+<p>当时由于刚放暑假，不想回去，特别的不想。于是在武汉到处找兼职，本着一颗尽量找和专业有关系工作的心。但是工作不是你说找，就立马能找到的。之前带着好几个同学一起去爱普宽带找工作，准备当兼职的。而恰巧我们去的时候，已经不收兼职了。我们又找了两天，还是没找到，学校眼看就要封校了，有的同学都打算放弃，回家的。但我实在是不想回家，特别是因为回的不是老家，而是去郑州。迫于无奈，我只有自己在网上找工作。简历发出去，没想到当天就有回复，要我去面试。</p>
+
+<p>第二天我带着U盘就去面试了，要我10点去，结果硬被我拖到11点了，有堵车的原因在内。面试的时候远比我想象要轻松多了，是经理面试我的，看着我的简历，就随便问了一下情况。远比我第一次在前程无忧面试的轻松，前程无忧那又是搞录音笔，又是上机操作的，问的问题都是些我都不知道该怎么回答的问题。</p>
+
+<p>面完试，就直接要我可以来上班了，当时我对那个公司还不是很了解，只知道公司很小，当时我想找一同学一起来上班，于是问了一下经理还要不要人，结果下午我就叫了一个同学过来简单的面试了一下，也通过了。当时很多同学都回家了，只能叫她了，看在她是学习委员，技术应该还不错的份上。后来才了解到公司是刚成立不久的，不过也可以吧，跟公司一起成长吧，我来的时候技术部就两个人。没人带的话就互相学习。</p>
+
+<p>接下来就是找房子，找了两天，算是找到一个比较凑合的房子租了下来，这一凑合就凑合的住了两个月。我正式上班那天，我寝室的室友，自己也跑过来面试了，也通过了。</p>
+
+<p>刚开始上班的一个星期，工作很闲，因为没有项目做。后来就一直忙，一直忙。公司因为接到了两个大项目，后来就又招人了的，因为扩张，办公室地方不够等原因，现在公司分两部了，一部，二部，在不同的地方，相隔的两座楼。会“相对独立”。二部刚成立的时候我去二部当过二部的技术主管，其实主要是帮忙分配一下任务，负责项目的进度。</p>
+
+<p>前几天的话，我又被调回一部来了。（公司刚开始分一、二部的时候我在一部待了一段时间了的）。由于有职位的变动，一部的主管升值为一部的营运总监，我被调回一部继续当我的技术主管。</p>
+
+<p>其实整个公司的话，大家年龄都差不多。经理跟我们是差不多大的。刚开始公司人比较少的话，还是很好管理的，大家上班的气氛都挺好的，下班了都挺活跃的，运用我们公司的话，就是“我们都是一群很和谐的人”。那时候下班之后有时间我们会是VS上打一盘Dota，随后那时候我很菜，都是被虐，那感觉和大家一起玩，还是蛮开心的。后来不知道是因为我们越来越忙了，还是</p>
+
+<p>因为我们公司会打Dota的人少了一个，还是因为公司要走正规路线了，总之，现在是没有人下班之后会去打Dota了，而是立马回家。其实一个公司上班的气氛是很重要的，也是很难把握的，特别是人越来越多，但是当年的google，和现在的facebook</p>
+
+<p>他们就做的非常好。</p>
+
+<p>三个月下来，也学了很多东西。之前在学校学的都是些基础，老师教得东西也是有限的（不知道是不是跟我大三了没去上课继续学习有关），发现有很多功能还等着我们去学，去挖掘吧，算是学无止境了。刚开始我们都不会JS，公司没有一个会JS的，那时间就到处问人，不过现在有了，发现自己只会PHP的话是远不远不够的。</p>
+
+<p>本来之前我们是打算只是两个月班，就打算请长假回去上课的，我们大三有45天左右的课，但由于那时候公司单子做不来，我们一走的话，就没人管了，还有就是我那时候看了一下，大三主要学的是网络布线的课了，网站这方便的课也有，但是少。后来我就做了一个艰难的决定，不回学校了。是的，我决了个定。</p>
+
+<p>本来学校是等10月份才放我们去实习的，但毕竟老师是希望我们能有一个好的工作的，特别是跟我们专业有关的工作。后来我们就办了离校手续了。然后又来了两个同学，我们一起上班了。我们找了一个两室一厅的房子，然后还买了厨具，我们决定自己做饭了，我们开始认真的了。</p>
+
+<p>想想时间过的也蛮快的，电脑一开机，一关机，一天就过去了。每天都在写代码。商女不知亡国恨，一天到晚写代码。举头望明月，低头写代码。洛阳亲友如相问，就说我在写代码。少壮不努力，老大写代码。垂死病中惊坐起，今天还没写代码。生当作人杰，死亦写代码。人生自古谁无死，来生继续写代码。众里寻他千百度，蓦然回首，那人正在写代码。总之，程序员，你伤不起呀~</p>
+
+<p>大好青春，别浪费了。 </p>
+
+<hr />
+
+<p>对了，补充一下： 公司每个月都会有一个月终酒会，就是每个月的月终经理请我们所有人一起吃一顿大餐，然后大家去K歌什么的，这个我觉得挺不错的。</p>
+
+<h2 id="comments">Comments</h2>
+
+<p><strong><a href="#3" title="2011-10-09 15:43:01">史丹丹</a>:</strong> 看见你写的东西，突然间好羡慕你，以前怎么没发现你文采有这么好啊！是不是自己亲身经历后就可以这么有感触啊！</p>
+
+<p><strong><a href="#4" title="2011-10-09 15:54:54">caicai</a>:</strong> 我文采不好~感触还是有的吧</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/22">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/20">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>
+    如果有一天，你不再尋找愛情，只是去愛；你不再渴望成功，只是去做；你不再追求成長，只是去修；一切才真正開始！
+    <br>
+    &#8211;by 紀伯倫 Kahil · Gibran
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/talk-about-things-driving-test.html">谈谈考驾照的事情</a>
+      </li>
+    
+      <li class="post">
+        <a href="/talk-about-time-management.html">谈谈时间管理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/about-3li3.com.html">关于三立三</a>
+      </li>
+    
+      <li class="post">
+        <a href="/beta-online-summary.html">项目 Beta 版上线总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/if-I-was-a-project-manager.html">如果是我来做项目经理</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/ajax/'>ajax (1)</a></li>
+<li class='category'><a href='/blog/categories/api/'>api (1)</a></li>
+<li class='category'><a href='/blog/categories/app/'>app (2)</a></li>
+<li class='category'><a href='/blog/categories/cakephp/'>cakephp (5)</a></li>
+<li class='category'><a href='/blog/categories/codeigniter/'>codeigniter (3)</a></li>
+<li class='category'><a href='/blog/categories/css/'>css (2)</a></li>
+<li class='category'><a href='/blog/categories/docker/'>docker (1)</a></li>
+<li class='category'><a href='/blog/categories/git/'>git (3)</a></li>
+<li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (4)</a></li>
+<li class='category'><a href='/blog/categories/jquery/'>jquery (5)</a></li>
+<li class='category'><a href='/blog/categories/mac/'>mac (2)</a></li>
+<li class='category'><a href='/blog/categories/mysql/'>mysql (3)</a></li>
+<li class='category'><a href='/blog/categories/nginx/'>nginx (1)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (4)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (17)</a></li>
+<li class='category'><a href='/blog/categories/phpstorm/'>phpstorm (1)</a></li>
+<li class='category'><a href='/blog/categories/phpji-chu/'>php基础 (4)</a></li>
+<li class='category'><a href='/blog/categories/python/'>python (1)</a></li>
+<li class='category'><a href='/blog/categories/restful/'>restful (2)</a></li>
+<li class='category'><a href='/blog/categories/sublime/'>sublime (1)</a></li>
+<li class='category'><a href='/blog/categories/travis-ci/'>travis-ci (1)</a></li>
+<li class='category'><a href='/blog/categories/vagrant/'>vagrant (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+<li class='category'><a href='/blog/categories/virtualbox/'>virtualbox (1)</a></li>
+<li class='category'><a href='/blog/categories/xampp/'>xampp (1)</a></li>
+<li class='category'><a href='/blog/categories/yii/'>yii (8)</a></li>
+<li class='category'><a href='/blog/categories/yii1/'>yii1 (2)</a></li>
+<li class='category'><a href='/blog/categories/yii2/'>yii2 (3)</a></li>
+<li class='category'><a href='/blog/categories/bu-gen-tuan/'>不跟团 (3)</a></li>
+<li class='category'><a href='/blog/categories/jian-shen/'>健身 (1)</a></li>
+<li class='category'><a href='/blog/categories/fen-xiang-jing-yan/'>分享经验 (1)</a></li>
+<li class='category'><a href='/blog/categories/tu-cao/'>吐槽 (3)</a></li>
+<li class='category'><a href='/blog/categories/gong-ju/'>工具 (3)</a></li>
+<li class='category'><a href='/blog/categories/gan-huo/'>干货 (3)</a></li>
+<li class='category'><a href='/blog/categories/si-kao/'>思考 (10)</a></li>
+<li class='category'><a href='/blog/categories/zong-jie/'>总结 (41)</a></li>
+<li class='category'><a href='/blog/categories/xiao-lu/'>效率 (1)</a></li>
+<li class='category'><a href='/blog/categories/lu-you/'>旅游 (4)</a></li>
+<li class='category'><a href='/blog/categories/jia-gou/'>架构 (1)</a></li>
+<li class='category'><a href='/blog/categories/dian-ying/'>电影 (3)</a></li>
+<li class='category'><a href='/blog/categories/zhi-hu/'>知乎 (1)</a></li>
+<li class='category'><a href='/blog/categories/cheng-xu-yuan/'>程序员 (1)</a></li>
+<li class='category'><a href='/blog/categories/guan-li/'>管理 (1)</a></li>
+<li class='category'><a href='/blog/categories/jing-yan-fen-xiang/'>经验分享 (1)</a></li>
+<li class='category'><a href='/blog/categories/bian-cheng-gong-ju/'>编程工具 (2)</a></li>
+<li class='category'><a href='/blog/categories/fan-yi/'>翻译 (4)</a></li>
+<li class='category'><a href='/blog/categories/du-shu/'>读书 (1)</a></li>
+<li class='category'><a href='/blog/categories/yue-du/'>阅读 (5)</a></li>
+
+  </ul>
+</section><script type="text/javascript" src="http://www.douban.com/service/badge/ipzone/?selection=favorite&amp;picsize=small&amp;show=collection&amp;n=12&amp;hidelogo=on&amp;cat=movie%7Cbook&amp;columns=3"></script>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/forecho">@forecho</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'forecho',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - forecho -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blog-forecho';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

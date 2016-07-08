@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>forecho</title>
+  <meta name="author" content="forecho">
+
+  
+  <meta name="description" content="我写了一个开源项目 2015 年初的几个月，Yii2 框架发布了，出于对 Yii2 的热爱，再加上是年底，工作没那么忙，本着学习和致敬 Ruby-China 的心态，
+我开始用 Yii2 开发一个社区。其实 PHPhub 社区也不错，但是没有 Yii 节点，呵呵。 由于以前有一点的 Yii1 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.forecho.com/posts/3/index.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="forecho" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <meta name="google-site-verification" content="OMI81_SJiESxwq-Fr0CLleoF7EzVdRx7QTQlbAfCVdI" />
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+function addBlankTargetForLinks () {
+  $('a[href^="http"]').each(function(){
+      $(this).attr('target', '_blank');
+  });
+}
+
+$(document).bind('DOMNodeInserted', function(event) {
+  addBlankTargetForLinks();
+});
+</script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-75634412-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">forecho</a></h1>
+  
+    <h2>苏格兰威士忌找不到了</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.forecho.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/about">关于我</a></li>
+  <li><a href="/archives">文章归档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/why-open-source.html">为什么要开源</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年12月17日
+        
+           | <a href="/why-open-source.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/why-open-source.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">我写了一个开源项目</h2>
+
+<p>2015 年初的几个月，Yii2 框架发布了，出于对 Yii2 的热爱，再加上是年底，工作没那么忙，本着学习和致敬 <a href="https://ruby-china.org/">Ruby-China</a> 的心态，
+我开始用 Yii2 开发一个社区。其实 <a href="https://phphub.org/">PHPhub</a> 社区也不错，但是没有 Yii 节点，呵呵。</p>
+
+<p>由于以前有一点的 Yii1 的基础，所以 Yii2 上手起来还算顺利。在网上找了一下资料，多看官方文档，开发起来也是很快的。</p>
+
+<p>开发的过程中参照了几个项目，去读他们的源码，学了不少东西。</p>
+
+<p>我一个人把基本功能开发完之后，然后发帖宣传了一下，还欢迎大家一起来参与进来，也建立一个 QQ 群，陆陆续续有人加进来，但是实际上参与开发贡献代码的的人只有几个。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/why-open-source.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/my-setup.html">Forecho 的利器</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年12月15日
+        
+           | <a href="/my-setup.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/my-setup.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">介绍一下你自己和所做的工作。</a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1">你都在使用哪些硬件？</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">软件呢？</a>    <ul>
+      <li><a href="#windows" id="markdown-toc-windows">Windows</a></li>
+      <li><a href="#mac" id="markdown-toc-mac">Mac</a></li>
+      <li><a href="#iphone--ipad-app" id="markdown-toc-iphone--ipad-app">iPhone &amp;&amp; iPad App</a></li>
+    </ul>
+  </li>
+  <li><a href="#section-3" id="markdown-toc-section-3">你最理想的工作环境是什么？</a></li>
+  <li><a href="#section-4" id="markdown-toc-section-4">你平时获得工作灵感的方式有哪些？</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">推荐一件生活中的利器给大家。</a></li>
+</ul>
+
+<h2 id="section">介绍一下你自己和所做的工作。</h2>
+
+<p>Hi，大家好，我是 forecho，目前在做程序后端开发，主要是 PHP，业余时间也折腾下 iOS 和 Python AND Ruby。工作已经有4年多了，目前在深圳。</p>
+
+<h2 id="section-1">你都在使用哪些硬件？</h2>
+
+<ul>
+  <li>一台2012年款的 MacBook Pro 15寸的中配，8G 内存，2年前被我换成 256G SSD 之后，除了没有 Retina 屏和有点重之外，其他的都还好。</li>
+  <li>iPhone5 用了3、4年，自己换了 home 键和电池，打算再坚挺1年，直到 iPhone7.</li>
+  <li>戴尔（DELL）UltraSharp U2412M，配合 MacBook 做双显示器用。自从买了一个电视盒子，也用来看电视了。</li>
+  <li>Kindle5 对于爱看书的我，2012 年年底就买了，一直用到现在，看过不少书，真心觉得是最值的一个电子设备，每天上班比背着。前几天买了海淘了个 KPW 3 还没到货。</li>
+  <li>iPad mini 2，之前有一个 iPad Air 1 的后来嫌太重了，换了 mini 了。本来打算用来用 PDF 的，现在沦落到看各种视频，给女朋友打游戏的地步了。</li>
+  <li>极路由，当然其他智能路由器也是可以的，配合 Shadowsocks 可以实现路由器翻墙，设备只要连接这个 WiFi 就在墙外，在家可以自由的刷 Twitter，看 YouTube。</li>
+  <li>天猫魔盒，当初买这个就是图他便宜，感觉越用反应越慢。</li>
+  <li>酷冷至尊的一款 87 键茶轴机械键盘。本来打算买个 FILCO 圣手二代，但是感觉太贵，没下手，换了这个中等价位的，感觉还可以。</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/my-setup.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/use-git-stash.html">处理 Git 忘记切分支修改代码的情况</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年12月15日
+        
+           | <a href="/use-git-stash.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/use-git-stash.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">场景</h2>
+
+<p>有时候没注意分支，直接在 master 上做开发了，但是这是团队开发的大忌。那如果发生了这种情况怎么办，也不用着急，
+我教你怎么解决。</p>
+
+<h2 id="section-1">解决问题</h2>
+
+<p>假设你现在在 master 分支上已经修改了文件，那么我们可以使用下面的命令把当前未提交到本地（和服务器）的代码推入到 Git 的栈中：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">$ </span>git stash
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>查看效果：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">$ </span>git status
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>切换分支：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">$ </span>git branch dev
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>还原代码：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">$ </span>git stash apply
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>ok，问题解决。下面我们再补充点知识。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/use-git-stash.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/coding-is-boring-unless.html">如何让团队里的工程师对工作不厌烦</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年11月30日
+        
+           | <a href="/coding-is-boring-unless.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/coding-is-boring-unless.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>
+  <p>原文：<a href="https://blog.enki.com/coding-is-boring-unless-4e496720d664#.pgkeq1x6r">《Coding is boring, unless…》</a></p>
+</blockquote>
+
+<p>作为一名工程师,我从来没有坚持同样的工作超过两年了。</p>
+
+<p>每个新工作是一个不错的职业选择,高薪在我们行业中也是很常见的。但是我离职让我之前的老板不是很高兴。其中一些试着说服我,但是我觉得留下来很无聊,所以我不能留下来。</p>
+
+<p>（免责声明：我很幸运的生活在一个编程工作比程序员更多的地方，所以我换工作有很多选择的余地。）</p>
+
+<p>我现在作为 <a href="http://enki.com/">Enki</a> 公司的联合创始人兼首席技术官。因此,我负责了公司的工程师文化。我工作的一部分是要确保我们的开发人员不会像我过去有时候一样的无聊。</p>
+
+<p>为了帮助我们的团队，我们已经设计了一些策略对抗无聊并且已经应用到我们公司。因为这种策略目前运行良好,我想在这里分享下。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/coding-is-boring-unless.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/ubuntu-use-ppa-install-php-extension.html">Ubuntu 使用 PPA 安装 PHP 扩展</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年11月19日
+        
+           | <a href="/ubuntu-use-ppa-install-php-extension.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/ubuntu-use-ppa-install-php-extension.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">简介</h2>
+
+<p>PPA，即 Personal Package Archives 缩写，也就是个人软件包集。</p>
+
+<blockquote>
+  <p>有很多软件因为种种原因，不能进入官方的 Ubuntu 软件仓库。 为了方便 Ubuntu 用户使用，launchpad.net 提供了 ppa，允许用户建立自己的软件仓库， 自由的上传软件。PPA 也被用来对一些打算进入 Ubuntu 官方仓库的软件，或者某些软件的新版本进行测试。</p>
+</blockquote>
+
+<h2 id="section-1">使用</h2>
+
+<p>我一直不太喜欢用源码编译的方式安装 PHP 扩展，主要是麻烦。然后偶然发现了这种方式安装 PHP 扩展，真是太方便了。</p>
+
+<p>下面我们来讲讲怎么使用：</p>
+
+<p>安装 PPA</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo add-apt-repository ppa:ondrej/php5
+</span><span class="line">sudo apt-get update</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>安装 php mcrypt 扩展</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">sudo apt-get install php5-mcrypt</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/ubuntu-use-ppa-install-php-extension.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/dynamic-properties-in-php-and-stdclass.html">PHP 中的动态属性和 StdClass</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年11月08日
+        
+           | <a href="/dynamic-properties-in-php-and-stdclass.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/dynamic-properties-in-php-and-stdclass.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>
+  <p>翻译 <a href="http://krisjordan.com/dynamic-properties-in-php-with-stdclass">Dynamic Properties in PHP and StdClass</a></p>
+</blockquote>
+
+<p>JavaScript 和 Python 允许对象实例的动态属性。事实证明,PHP 也是如此。看官方 PHP 对象和类文档可能会导致你相信动态实例属性需要自定义 __get 和 __set 魔术方法。其实不用。</p>
+
+<h2 id="section">简单,内置的动态属性</h2>
+
+<p>看看以下代码:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="k">class</span> <span class="nc">DynamicProperties</span> <span class="p">{</span> <span class="p">}</span>
+</span><span class="line"><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DynamicProperties</span><span class="p">;</span>
+</span><span class="line"><span class="k">echo</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;t&#39;</span> <span class="o">:</span> <span class="s1">&#39;f&#39;</span><span class="p">;</span> <span class="c1">// f</span>
+</span><span class="line"><span class="k">echo</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class="line"><span class="c1">// Set Dynamic Properties foo and fooz</span>
+</span><span class="line"><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+</span><span class="line"><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">fooz</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span><span class="p">;</span>
+</span><span class="line"><span class="c1">// Isset and Unset work</span>
+</span><span class="line"><span class="nb">isset</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class="line"><span class="nb">unset</span><span class="p">(</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">foo</span><span class="p">);</span>
+</span><span class="line"><span class="c1">// Iterate through Properties and Values</span>
+</span><span class="line"><span class="k">foreach</span><span class="p">(</span><span class="nv">$object</span> <span class="k">as</span> <span class="nv">$property</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>  <span class="p">{</span>
+</span><span class="line">    <span class="k">echo</span> <span class="nv">$property</span> <span class="o">.</span> <span class="s1">&#39; = &#39;</span> <span class="o">.</span> <span class="nv">$value</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="c1">// Prints:</span>
+</span><span class="line"><span class="c1">// fooz = baz</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/dynamic-properties-in-php-and-stdclass.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/before-25.html">25岁之后</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年09月13日
+        
+           | <a href="/before-25.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/before-25.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>现在是2015年9月13号17点53分54秒，是我迈向26岁之后的第三天了。过生日的方式是请了几个好朋友吃饭，大家一起聊聊天，女朋友送了我礼物，很是开心。</p>
+
+<p>2011年11月8号的时候我在知乎回答了一个问题，<a href="http://www.zhihu.com/question/19820483/answer/13320614">26 岁的时候你正在做什么？想要做什么？</a>由于当时只有21岁，所以我写下了下面这个希望：</p>
+
+<blockquote>
+  <p>我现在21岁了，还没毕业，大三没读了，暑假出来实习就没回去上课了，一直到现在。
+所在的公司呢？是个创业型的小公司，刚开始干着挺有激情的，现在感觉有点累了，不过，还是要挺住，多学习一点东西。
+26岁的时候，我希望能有着一群朋友，然后我们组成一个团队，有着一个共同的梦想，那时候的我们正在为之而奋斗，像《海贼王》中的路飞他们团队。
+26岁的时候，我希望我希望我的父母、弟弟、爷爷、以及身边的亲人、朋友身体都很健康。
+26岁的时候，我希望我也能做出一个百万级用户的互联网产品出来，至于做什么，我现在都还在想。
+26岁的时候，我希望我已经找到了一个能懂我的女生。
+26岁的时候，我想我已经创业了。
+26岁的时候。。。。</p>
+</blockquote>
+
+<p>那么现在我已经26岁了。时间过的真的很快啊，离这个回答都4年过去了，我来深圳也3年多了。那时候的我是在第一家公司，而现在的我都不知道换了几家了，但是现在的这家公司我待了快2年了，我自己都不敢相信自己能在一个公司待上这么久。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/before-25.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/about-fitness.html">关于健身</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年09月04日
+        
+           | <a href="/about-fitness.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/about-fitness.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">前言</h2>
+
+<p>意识到我们这行职业天天坐办公室，再加上自己身体平常也比较虚，平常也比较懒，不爱运动。</p>
+
+<p>一直有在关注跑步的事情，一天突然知乎上看了很多关于跑步的事情，整个人就跟打了鸡血一样，然后决定去跑步，拉上兔子一起。</p>
+
+<h2 id="section-1">开跑</h2>
+
+<p>啥废话也别说，先跑起来再说。一个周日我们早早吃完晚饭就去附近一站远的体育场跑步去了。刚开始跑第一圈就有点累，然后就开始走了，总之那天我们基本上是走一圈跑一圈的状态，跑了三圈，一圈600-700米左右吧。</p>
+
+<p>感觉还是个很不错的开头的。一开始是打算每天去跑的，但是想想难度有点大，然后确定了每周2、4、7去跑。</p>
+
+<p>确定之后就开始买了「装备」了，买了运动短裤和手机的肩带，后来又买了运动蓝牙耳机。</p>
+
+<p>「跑步日」那天下班之后我们会现在公司那边先吃饭，然后再坐地铁回家，提前一站 - 也就是体育场下车，体育场旁边正好有一个沃尔玛，方便了我们存包。</p>
+
+<p>刚开始我们还去换运动短裤，后来就懒得换了，再后来也懒得去跑了……</p>
+
+<p>坚持了半个月左右吧。放弃是因为兔子来大姨妈了，我一个人也不想跑了。其实我每次去跑之前都有点想放弃，但是不敢也不想说，但是每次跑完之后感觉还是很好的。跑步之后大汗淋漓的感觉很舒畅！</p>
+
+<p>感觉有些事情你一旦放弃了，后面就很难坚持了，哪怕就放弃了一天。当然我们还会去跑的！</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/about-fitness.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/solve-vagrant-up-timeout.html">解决「vagrant Up」timeout 问题</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年07月30日
+        
+           | <a href="/solve-vagrant-up-timeout.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/solve-vagrant-up-timeout.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="section">前言</h2>
+
+<p>之前我有写<a href="/blog/windows-coding-tool.html#section-1">《Windows 开发利器》</a>文章提到使用「VirtualBox + Vagrant（打造 Linux 开发环境）」，
+到现在为止在公司使用也有几个月了，到现在为只出现过两次问题。</p>
+
+<h2 id="section-1">第一次启动不了</h2>
+
+<p>第一次主要是我电脑下班之后没关机，睡眠模式，结果半夜停电了，导致强制关机了，最后导致 <code>vagrant up</code> 命令启动不了了，最后我又重新安装了我的 vagrant。
+所以，切记，<strong>一定要学会打包自己的 vagrant</strong>。</p>
+
+<p><strong>打包自己的 vagrant</strong></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line"><span class="nv">$ </span>vagrant package
+</span><span class="line"><span class="o">[</span>default<span class="o">]</span> Attempting graceful shutdown of VM...
+</span><span class="line"><span class="o">[</span>default<span class="o">]</span> Clearing any previously <span class="nb">set </span>forwarded ports...
+</span><span class="line"><span class="o">[</span>default<span class="o">]</span> Creating temporary directory <span class="k">for</span> export...
+</span><span class="line"><span class="o">[</span>default<span class="o">]</span> Exporting VM...
+</span><span class="line"><span class="o">[</span>default<span class="o">]</span> Compressing package to: /Users/astaxie/vagrant/package.box
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>有了这个备份就是可以放心的使（zhe）用（teng）vagrant 了。</p>
+
+<p>下面我们重点来讲讲今天遇到的这个坑。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/solve-vagrant-up-timeout.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/yii2-create-api.html">Yii2 高级版新建一个 Api 应用</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2015年07月27日
+        
+           | <a href="/yii2-create-api.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/yii2-create-api.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先在项目的根目录下复制一份 backend 为 api：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">cp backend/ api -r
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>拷贝 api 环境</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">cp -a environments/dev/frontend environments/dev/api
+</span><span class="line">cp -a environments/prod/frontend environments/prod/api
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>修改 environments/index.php 文件之后的代码（主要是添加了一些 api 相关的代码）：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+</pre></td><td class="code"><pre><code class="php"><span class="line"><span class="k">return</span> <span class="p">[</span>
+</span><span class="line">    <span class="s1">&#39;Development&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">        <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;dev&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="s1">&#39;setWritable&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;backend/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;backend/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">        <span class="s1">&#39;setExecutable&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;yii&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">        <span class="s1">&#39;setCookieValidationKey&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;backend/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">    <span class="p">],</span>
+</span><span class="line">    <span class="s1">&#39;Production&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">        <span class="s1">&#39;path&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;prod&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="s1">&#39;setWritable&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;backend/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;backend/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/runtime&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/web/assets&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">        <span class="s1">&#39;setExecutable&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;yii&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">        <span class="s1">&#39;setCookieValidationKey&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class="line">            <span class="s1">&#39;backend/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;frontend/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">            <span class="s1">&#39;api/config/main-local.php&#39;</span><span class="p">,</span>
+</span><span class="line">        <span class="p">],</span>
+</span><span class="line">    <span class="p">],</span>
+</span><span class="line"><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/yii2-create-api.html">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/4">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/2">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>
+    如果有一天，你不再尋找愛情，只是去愛；你不再渴望成功，只是去做；你不再追求成長，只是去修；一切才真正開始！
+    <br>
+    &#8211;by 紀伯倫 Kahil · Gibran
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/talk-about-things-driving-test.html">谈谈考驾照的事情</a>
+      </li>
+    
+      <li class="post">
+        <a href="/talk-about-time-management.html">谈谈时间管理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/about-3li3.com.html">关于三立三</a>
+      </li>
+    
+      <li class="post">
+        <a href="/beta-online-summary.html">项目 Beta 版上线总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/if-I-was-a-project-manager.html">如果是我来做项目经理</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/ajax/'>ajax (1)</a></li>
+<li class='category'><a href='/blog/categories/api/'>api (1)</a></li>
+<li class='category'><a href='/blog/categories/app/'>app (2)</a></li>
+<li class='category'><a href='/blog/categories/cakephp/'>cakephp (5)</a></li>
+<li class='category'><a href='/blog/categories/codeigniter/'>codeigniter (3)</a></li>
+<li class='category'><a href='/blog/categories/css/'>css (2)</a></li>
+<li class='category'><a href='/blog/categories/docker/'>docker (1)</a></li>
+<li class='category'><a href='/blog/categories/git/'>git (3)</a></li>
+<li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (4)</a></li>
+<li class='category'><a href='/blog/categories/jquery/'>jquery (5)</a></li>
+<li class='category'><a href='/blog/categories/mac/'>mac (2)</a></li>
+<li class='category'><a href='/blog/categories/mysql/'>mysql (3)</a></li>
+<li class='category'><a href='/blog/categories/nginx/'>nginx (1)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (4)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (17)</a></li>
+<li class='category'><a href='/blog/categories/phpstorm/'>phpstorm (1)</a></li>
+<li class='category'><a href='/blog/categories/phpji-chu/'>php基础 (4)</a></li>
+<li class='category'><a href='/blog/categories/python/'>python (1)</a></li>
+<li class='category'><a href='/blog/categories/restful/'>restful (2)</a></li>
+<li class='category'><a href='/blog/categories/sublime/'>sublime (1)</a></li>
+<li class='category'><a href='/blog/categories/travis-ci/'>travis-ci (1)</a></li>
+<li class='category'><a href='/blog/categories/vagrant/'>vagrant (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+<li class='category'><a href='/blog/categories/virtualbox/'>virtualbox (1)</a></li>
+<li class='category'><a href='/blog/categories/xampp/'>xampp (1)</a></li>
+<li class='category'><a href='/blog/categories/yii/'>yii (8)</a></li>
+<li class='category'><a href='/blog/categories/yii1/'>yii1 (2)</a></li>
+<li class='category'><a href='/blog/categories/yii2/'>yii2 (3)</a></li>
+<li class='category'><a href='/blog/categories/bu-gen-tuan/'>不跟团 (3)</a></li>
+<li class='category'><a href='/blog/categories/jian-shen/'>健身 (1)</a></li>
+<li class='category'><a href='/blog/categories/fen-xiang-jing-yan/'>分享经验 (1)</a></li>
+<li class='category'><a href='/blog/categories/tu-cao/'>吐槽 (3)</a></li>
+<li class='category'><a href='/blog/categories/gong-ju/'>工具 (3)</a></li>
+<li class='category'><a href='/blog/categories/gan-huo/'>干货 (3)</a></li>
+<li class='category'><a href='/blog/categories/si-kao/'>思考 (10)</a></li>
+<li class='category'><a href='/blog/categories/zong-jie/'>总结 (41)</a></li>
+<li class='category'><a href='/blog/categories/xiao-lu/'>效率 (1)</a></li>
+<li class='category'><a href='/blog/categories/lu-you/'>旅游 (4)</a></li>
+<li class='category'><a href='/blog/categories/jia-gou/'>架构 (1)</a></li>
+<li class='category'><a href='/blog/categories/dian-ying/'>电影 (3)</a></li>
+<li class='category'><a href='/blog/categories/zhi-hu/'>知乎 (1)</a></li>
+<li class='category'><a href='/blog/categories/cheng-xu-yuan/'>程序员 (1)</a></li>
+<li class='category'><a href='/blog/categories/guan-li/'>管理 (1)</a></li>
+<li class='category'><a href='/blog/categories/jing-yan-fen-xiang/'>经验分享 (1)</a></li>
+<li class='category'><a href='/blog/categories/bian-cheng-gong-ju/'>编程工具 (2)</a></li>
+<li class='category'><a href='/blog/categories/fan-yi/'>翻译 (4)</a></li>
+<li class='category'><a href='/blog/categories/du-shu/'>读书 (1)</a></li>
+<li class='category'><a href='/blog/categories/yue-du/'>阅读 (5)</a></li>
+
+  </ul>
+</section><script type="text/javascript" src="http://www.douban.com/service/badge/ipzone/?selection=favorite&amp;picsize=small&amp;show=collection&amp;n=12&amp;hidelogo=on&amp;cat=movie%7Cbook&amp;columns=3"></script>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/forecho">@forecho</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'forecho',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - forecho -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blog-forecho';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

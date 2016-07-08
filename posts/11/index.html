@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>forecho</title>
+  <meta name="author" content="forecho">
+
+  
+  <meta name="description" content="先在Views页面的表单开启这个功能： &lt;?php $form=$this-&gt;beginWidget('CActiveForm', array( 'id'=&gt;'signup-form', 'enableAjaxValidation' =&gt; true,//开启Ajax验证 ' &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.forecho.com/posts/11/index.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="forecho" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <meta name="google-site-verification" content="OMI81_SJiESxwq-Fr0CLleoF7EzVdRx7QTQlbAfCVdI" />
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+function addBlankTargetForLinks () {
+  $('a[href^="http"]').each(function(){
+      $(this).attr('target', '_blank');
+  });
+}
+
+$(document).bind('DOMNodeInserted', function(event) {
+  addBlankTargetForLinks();
+});
+</script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-75634412-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">forecho</a></h1>
+  
+    <h2>苏格兰威士忌找不到了</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.forecho.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/about">关于我</a></li>
+  <li><a href="/archives">文章归档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Yii-Ajax-biao-dan-yan-zheng.html">Yii Ajax 表单验证</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月30日
+        
+           | <a href="/Yii-Ajax-biao-dan-yan-zheng.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Yii-Ajax-biao-dan-yan-zheng.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先在Views页面的表单开启这个功能：</p>
+
+<pre><code>&lt;?php $form=$this-&gt;beginWidget('CActiveForm', array(
+    'id'=&gt;'signup-form',
+    'enableAjaxValidation' =&gt; true,//开启Ajax验证
+    'enableClientValidation'=&gt;true,
+    'clientOptions'=&gt;array(
+        'validateOnSubmit'=&gt;true,
+    ),
+)); ?&gt;
+
+...
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</code></pre>
+
+<p>然后再对应的Controller的action中加入代码：</p>
+
+<pre><code>//注册
+public function actionSignup()
+{   
+    $model = new LoginForm('signup');
+    // 开启Ajax验证
+    if(isset($_POST['ajax']) &amp;&amp; $_POST['ajax']==='signup-form')
+    {
+        echo CActiveForm::validate($model);
+        Yii::app()-&gt;end();
+    }
+    if (isset($_POST['LoginForm'])) {
+        $model-&gt;attributes=$_POST['LoginForm'];
+        if($model-&gt;validate()){
+            if($model-&gt;signup()){ 
+               $this-&gt;redirect(array('login'));
+            }
+        }
+    }
+
+    $this-&gt;render('signup', array('model'=&gt;$model));
+}
+</code></pre>
+
+<p><strong>需要注意的是：表单的ID 名字 要跟控制器中的一样。（此处我的是<code>signup-form</code>）</strong> ==============补充 2014年01月12日============= 如果想让 ajax 的字段唯一，只需要在 Model 文件的 Rules 方法里面加上下面这行就可以了：</p>
+
+<pre><code>array('name', 'unique'),
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Yii-Select-xia-la-cai-dan.html">Yii Select下拉菜单</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月30日
+        
+           | <a href="/Yii-Select-xia-la-cai-dan.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Yii-Select-xia-la-cai-dan.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yii给下拉菜单一个添加一条数据： 一、不需要默认值</p>
+
+<pre><code>&lt;?php echo $form-&gt;dropdownlist(
+                    $model,
+                    'parent_id',
+                    CHtml::listData(Cat::model()-&gt;findAll(), 'id', 'name'),
+                    array('prompt'=&gt;'根目录')
+); ?&gt;
+</code></pre>
+
+<p>‘prompt’可以换成’empty’ 结果是：</p>
+
+<pre><code>&lt;select name="Cat[parent_id]" id="cat_parent_id"&gt;
+    &lt;option value=""&gt;根目录&lt;/option&gt;
+    &lt;option value="1"&gt;手机&lt;/option&gt;
+    &lt;option value="2"&gt;婚纱&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>  二、如果自己的添加的一个Option需要给定Value的话，只能用‘empty’来实现，示例如下：</p>
+
+<pre><code>&lt;?php echo $form-&gt;dropdownlist(
+                    $model,
+                    'parent_id',
+                    CHtml::listData(Cat::model()-&gt;findAll(), 'id', 'name'),
+                    array('empty'=&gt;array('10'=&gt;'根目录'))
+); ?&gt;
+</code></pre>
+
+<p>结果是：</p>
+
+<pre><code>&lt;select name="Cat[parent_id]" id="cat_parent_id"&gt;
+    &lt;option value="10"&gt;根目录&lt;/option&gt;
+    &lt;option value="1"&gt;手机&lt;/option&gt;
+    &lt;option value="2"&gt;婚纱&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>  参考资料： <a href="http://www.yiichina.com/api/CHtml#activeDropDownList-detail">http://www.yiichina.com/api/CHtml#activeDropDownList-detail</a> <a href="http://stackoverflow.com/questions/16057637/yii-dropdown-list-empty-value-as-default">http://stackoverflow.com/questions/16057637/yii-dropdown-list-empty-value-as-default</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/PHP-MySQL-Yii-geng-xin-shu-ju-ku-shi-zi-duan-zhi-zi-zeng.html">PHP MySQL Yii更新数据库时 字段值自增</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月30日
+        
+           | <a href="/PHP-MySQL-Yii-geng-xin-shu-ju-ku-shi-zi-duan-zhi-zi-zeng.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/PHP-MySQL-Yii-geng-xin-shu-ju-ku-shi-zi-duan-zhi-zi-zeng.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>PHP MySQL的实现方法是：</p>
+
+<pre><code>update tablename set fieldname = fieldname*2 where ...
+</code></pre>
+
+<p>Yii基本上有三种实现方法： 一、用save()方法。</p>
+
+<pre><code>//登录一次加5点
+$user=User::model()-&gt;findByPk(Yii::app()-&gt;user-&gt;id);
+$user-&gt;reputation=$user-&gt;reputation+'5';
+$user-&gt;save(); // 将更改保存到数据库
+</code></pre>
+
+<p>二、用saveCounters方法。（要实现自减，只需把数值改成负数即可）</p>
+
+<pre><code>$postRecord=User::model()-&gt;findByPk(Yii::app()-&gt;user-&gt;id);
+$postRecord-&gt;saveCounters(array('reputation'=&gt;5));
+</code></pre>
+
+<p>三、用updateCounters？这个还没有成功，报错貌似是编码问题，待解。   参考资料：<a href="http://www.yiiframework.com/wiki/282/using-counters-with-activerecord/">http://www.yiiframework.com/wiki/282/using-counters-with-activerecord/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Yii-biao-tian-jia-zi-duan-hou-shu-ju-geng-xin-bu-cheng-gong.html">Yii 表添加字段后数据更新不成功</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月28日
+        
+           | <a href="/Yii-biao-tian-jia-zi-duan-hou-shu-ju-geng-xin-bu-cheng-gong.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Yii-biao-tian-jia-zi-duan-hou-shu-ju-geng-xin-bu-cheng-gong.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>情况是这样的，我开始已经用Gii生成了Model文件了，后来又手动添加一个字段，这个字段是info，TEXT类型，不是必填项。 刚开始我是直接在已经生成的Model文件里的rules最后一行代码添加info的，添加之后的代码如下：</p>
+
+<pre><code>public function rules()
+{
+	// NOTE: you should only define rules for those attributes that
+	// will receive user inputs.
+	return array(
+		array('email', 'required'),
+		array('email', 'length', 'max'=&gt;255),
+		array('name', 'length', 'max'=&gt;25),
+		array('password', 'length', 'max'=&gt;100),
+		// The following rule is used by search().
+		// Please remove those attributes that should not be searched.
+		array('id, email, name, password, info', 'safe', 'on'=&gt;'search'),
+	);
+}
+</code></pre>
+
+<p>后来调试了半天，数据就是添加不进去数据库，在Controller的actionUpade时打印数据$_POST[‘User’]，能获取到更新后的数据，但是就是添加不了数据库。 最后Google和调试了几次，发现可能是我的info字段没有设置验证规则，虽然不是必填项。后来就试着添加了下面这行代码：</p>
+
+<pre><code>array('info','type','type'=&gt;'string'),
+</code></pre>
+
+<p>感觉上面这行代码挺别扭的，但是最后结果是成功更新数据到数据库了，事实证明就是这个字段的验证有问题。 后来我又发现了这个rules的safe貌似只是针对search场景的，而我需要的更新数据。 于是代码改成下面这样的了：</p>
+
+<pre><code>public function rules()
+{
+	// NOTE: you should only define rules for those attributes that
+	// will receive user inputs.
+	return array(
+		array('email', 'required'),
+		array('email', 'length', 'max'=&gt;255),
+		array('name', 'length', 'max'=&gt;25),
+		array('password', 'length', 'max'=&gt;100),
+		array('info', 'safe'),
+		// The following rule is used by search().
+		// Please remove those attributes that should not be searched.
+		array('id, email, name, password', 'safe', 'on'=&gt;'search'),
+	);
+}
+</code></pre>
+
+<p>测试一下，果然成功了。 最后为了进一步确认一下，我去Gii又生成一个这个表的Model，只是预览一下代码，不生成。对比rules，果然就是改这里。早知道直接用这个方法了。 <strong>最后总结一下</strong>，yii的表每个字段在rules都要有个验证规则，如果没有验证规则，那就必须要写一个safe。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Ubuntu-an-zhuang-PHP-Mongo-kuo-zhan.html">Ubuntu安装PHP Mongo扩展</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月26日
+        
+           | <a href="/Ubuntu-an-zhuang-PHP-Mongo-kuo-zhan.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Ubuntu-an-zhuang-PHP-Mongo-kuo-zhan.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果你没有安装PHP的PECL，就先在终端执行下面命令：</p>
+
+<pre><code>sudo apt-get install php5-dev php5-cli php-pear
+</code></pre>
+
+<p>然后安装命令：</p>
+
+<pre><code>sudo pecl install mongo
+</code></pre>
+
+<p>找到你的php.ini配置文件，打开（下面是我系统的php.ini文件路径，你需要找到你的配置文件）：</p>
+
+<pre><code>vim /etc/php5/fpm/php.ini
+</code></pre>
+
+<p>手动添加下面这行代码：</p>
+
+<pre><code>extension=mongo.so
+</code></pre>
+
+<p>重启一下PHP：</p>
+
+<pre><code>sudo service php5-fpm restart
+</code></pre>
+
+<p>然后查看你的info.php文件（查看PHP配置文件），如果你能搜索到“mongo”，那就说明你安装成功了。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/jie-jue-Nginx-wu-fa-shi-bie-PHP-wen-ti.html">解决Nginx无法识别PHP问题</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月23日
+        
+           | <a href="/jie-jue-Nginx-wu-fa-shi-bie-PHP-wen-ti.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/jie-jue-Nginx-wu-fa-shi-bie-PHP-wen-ti.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这两天很蛋疼的在Linux下面配置LNMP环境。参考了比较多的资料，但是发现一个问题，就是安装好环境之后，Nginx无法识别PHP文件，HTML文件是没有问题的。</p>
+
+<p>还要解决配置多个虚拟目录的问题。</p>
+
+<p>后来就各种Google找资料，按照<a href="http://www.markdream.com/server/nginx-config-null-host.shtml">这篇文章</a>的方法配置，还算比较成功。</p>
+
+<p>这个可以成功的配置虚拟目录，但是还是无法识别PHP。</p>
+
+<p>后来找到<a href="http://ilovers.sinaapp.com/drupal/node/10">这篇文章</a>，其中提到：Nginx 本身并没有PHP 解释器，所以，需要借助于 PHP 提供的 fastcgi，所以，需要运行 PHP 的 php-cgi 进程；</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">php-cgi -b 127.0.0.1:9000 # cmd 中运行 php-cgi，监听本地地址，9000端口；</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>我是比较头晕不知道自己是否安装了这个，但是发现自己Nginx配置目录下还是有fastcgi文件的。 <strong>我的9000端口法无监听？</strong>试了一下这个方法，无效。 其实这个地方监听是什么，你需要去看<code>/etc/php5/fpm/pool.d/www.conf</code>配置文件写的是什么，这个写成一致即可。 后来把：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">location ~ \.php($|/) {
+</span><span class="line">    set  $script     $uri;
+</span><span class="line">    set  $path_info  "";
+</span><span class="line">    if ($uri ~ "^(.+\.php)(/.+)") {
+</span><span class="line">      set  $script     $1;
+</span><span class="line">      set  $path_info  $2;
+</span><span class="line">    }
+</span><span class="line">    fastcgi_pass   127.0.0.1:9000;
+</span><span class="line">    include        fastcgi_params;
+</span><span class="line">    fastcgi_param  PATH_INFO                $path_info;
+</span><span class="line">    fastcgi_param  SCRIPT_FILENAME          /usr/local/vhost/demo$script;
+</span><span class="line">    fastcgi_param  SCRIPT_NAME              $script;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>改成为：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">location ~ \.php$ {
+</span><span class="line">    root   /usr/local/vhost/demo;
+</span><span class="line">    fastcgi_pass unix:/var/run/php5-fpm.sock;
+</span><span class="line">    fastcgi_index  index.php;
+</span><span class="line">    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+</span><span class="line">    include        fastcgi_params;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>然后重启Nginx服务，访问你设置的server_name ，成功</p>
+
+<p>补充一些参考文章：</p>
+
+<ul>
+  <li><a href="http://www.laruence.com/2009/07/28/1030.html">Linux上配置Nginx+PHP5(FastCGI)</a></li>
+  <li><a href="http://blog.sina.com.cn/s/blog_6a0b2afd01014acf.html">ubuntu 12.10 默认安装php5-fpm无监听9000端口，nginx无法链接php5-fpm修正</a></li>
+  <li><a href="http://ordinary-linux-user.blogspot.com/2013/04/installing-nginx-and-php-on-linux-mint.html">Installing Nginx and PHP on Linux Mint 13</a></li>
+  <li><a href="https://www.digitalocean.com/community/articles/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-12-04">How to Install Linux, nginx, MySQL, PHP (LEMP) stack on Ubuntu 12.04</a></li>
+</ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/yong-jQuery-shi-xian-dang-qian-ye-mian-gei-cai-dan-dao-hang-yi-ge-te-ding-yang-shi.html">用jQuery实现当前页面给菜单导航一个特定样式</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月22日
+        
+           | <a href="/yong-jQuery-shi-xian-dang-qian-ye-mian-gei-cai-dan-dao-hang-yi-ge-te-ding-yang-shi.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/yong-jQuery-shi-xian-dang-qian-ye-mian-gei-cai-dan-dao-hang-yi-ge-te-ding-yang-shi.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>以前一直困惑我的一个问题就是：怎么实现给当前页面导航菜单一个样式？</p>
+
+<p>最最开始的时候用的是最笨的方法，就是每个导航页面都写得不一样。比方说index.html页面的时候，会在index导航的a标签一个.active样式，然后第二个Posts.html页面的时候会在Posts导航的a标签一个.active样式。这个虽然效果实现了，但是有个很大的缺点 - 导航不能调用一个，每个页面的导航写法不一样。</p>
+
+<p>后来发现可以用PHP的GET变量来实现这个效果。这个效果比上一个好，可以调用同一个导航文件，但是现在想想，这个方法会让导航这个文件代码变得臃肿，每个a标签都要写个if语句判断语句。然后根据GET获得的变量来判断是否显示.active这个样式。</p>
+
+<p>今天无意中看了下一个<a href="http://usman.it/themes/charisma/">开源的后台模板</a>。下载下来发现他这个是纯HTML也实现了这个功能，然后查看源代码，在<a href="http://usman.it/themes/charisma/js/charisma.js">charisma.js</a>文件发现了下面这个关键的代码：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="c1">//highlight current / active link</span>
+</span><span class="line"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul.main-menu li a&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">	<span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">))[</span><span class="mi">0</span><span class="p">].</span><span class="nx">href</span><span class="o">==</span><span class="nb">String</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">))</span>
+</span><span class="line">		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>然后根据这个，自己写了个Demo，果然实现了。这下省了不少代码，也解决了一个我一直以来比较困惑的问题，看来还是得多看看别人的代码，学习。</p>
+
+<p><a href="http://pan.baidu.com/share/link?shareid=1247541698&amp;uk=2684558169">Demo下载</a>。</p>
+
+<hr />
+
+<p>其实这样也有效果：</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul.nav li a&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">href</span> <span class="o">==</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>## Comments</p>
+
+<p><strong><a href="#154" title="2013-07-22 21:58:00">风逐蓝天</a>:</strong> Good. 学习了.</p>
+
+<p><strong><a href="#155" title="2013-07-25 16:08:00">风逐蓝天</a>:</strong> $($(this))[0].href 这个是什么意思？ 为什么不能是 $(this)[0].href ？</p>
+
+<p><strong><a href="#156" title="2013-07-25 16:22:00">ForEcho</a>:</strong> 这个问题我也想过，但是没搞清楚，毕竟不是专业的前端。但是我试过$(this)[0].href，结果就是行不通。你可以试着alert($(this)[0].href) 查看结果。</p>
+
+<p><strong><a href="#191" title="2013-11-12 17:55:00">gao</a>:</strong> 优化后:</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav li a&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class="line">    <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="nx">$this</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">href</span><span class="o">==</span><span class="nb">String</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">)){</span>
+</span><span class="line">        <span class="nx">$this</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;current&quot;</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p><strong><a href="#192" title="2013-11-12 18:29:00">ForEcho</a>:</strong> Thx 这样写更美观了</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/PHP-dui-xiang-zhuan-cheng-shu-zu-de-han-shu.html">PHP对象转成数组的函数</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月16日
+        
+           | <a href="/PHP-dui-xiang-zhuan-cheng-shu-zu-de-han-shu.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/PHP-dui-xiang-zhuan-cheng-shu-zu-de-han-shu.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>对象和数组的区别：</strong></p>
+
+<ul>
+  <li>数组表示有序数据的集合，而对象表示无序数据的集合。如果数据的顺序很重要，就用数组，否则就用对象。</li>
+  <li>
+    <p>数组的数据没有”名称”（name），对象的数据有”名称”（name）。（例外：在Javascript语言中，关联数组就是对象，对象就是关联数组。）</p>
+
+    <p>/**
+ * 对象转数组
+ * @author 佚名
+ * @param object $obj
+ * @return array
+ */
+function object_to_array($obj){
+  $_arr = is_object($obj) ? get_object_vars($obj) : $obj;
+	foreach ($_arr as $key =&gt; $val){
+		$val = (is_array($val) || is_object($val)) ? $this-&gt;object_to_array($val) : $val;
+		$arr[$key] = $val;
+	}
+	return $arr;
+}</p>
+  </li>
+</ul>
+
+<p><code>[is_object</code> ](http://www.php.net/manual/zh/function.is-object.php): 检测变量是否是一个对象。 <code>[get_object_vars</code>](http://php.net/manual/zh/function.get-object-vars.php) : 返回由对象属性组成的关联数组。 参考资料: <a href="http://www.ruanyifeng.com/blog/2009/05/data_types_and_json.html">http://www.ruanyifeng.com/blog/2009/05/data_types_and_json.html</a> <a href="https://gist.github.com/suziewong/4316491">https://gist.github.com/suziewong/4316491</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Vim-bian-ji-qi-shi-yong-yi.html">Vim编辑器使用（一）</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月09日
+        
+           | <a href="/Vim-bian-ji-qi-shi-yong-yi.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-yi.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://m2.img.libdd.com/farm3/19/3B97FC2A47562849C033A8102DD79B13_800_543.jpg" alt="" /></p>
+
+<p>默认是一般模式</p>
+
+<p>按 i、I、o、O、a、A、r、R进入编辑模式</p>
+
+<p>按：、/、？进入命令行模式</p>
+
+<p><strong>补充解释：</strong></p>
+
+<p>i, I 进入插入模式(Insert mode)：<br />
+i为『从目前鼠标所在处插入』， I为『在目前所在行的第一个非空白字元处开始插入』。( 常用 )</p>
+
+<p>a, A 进入插入模式(Insert mode)：<br />
+a为『从目前鼠标所在的下一个字元处开始插入』， A为『从鼠标所在行的最后一个字元处开始插入』。( 常用 )</p>
+
+<p>o, O 进入插入模式(Insert mode)：<br />
+这是英文字母o的大小写。o为『在目前鼠标所在的下一行处插入新的一行』； O为在目前鼠所在处的上一行插入新的一行！( 常用 )</p>
+
+<p>r, R 进入取代模式(Replace mode)：<br />
+r只会取代鼠标所在的那一个字元一次；R会一直取代鼠标所在的文字，直到按下ESC为止；( 常用 )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/Vim-bian-ji-qi-shi-yong-er-yi-ban-mo-shi.html">Vim编辑器使用（二）——一般模式</a></h1>
+    
+    
+      <p class="meta">
+        
+ 
+ 
+ 
+
+  2013年07月09日
+        
+           | <a href="/Vim-bian-ji-qi-shi-yong-er-yi-ban-mo-shi.html#disqus_thread"
+             data-disqus-identifier="http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-er-yi-ban-mo-shi.html">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>一般模式：移动光标的方法（#表示常用）</strong></p>
+
+<ul>
+  <li>h -&gt; 光标向左移动一个字符#</li>
+  <li>j -&gt; 光标向下移动一个字符#</li>
+  <li>k -&gt; 光标向上移动一个字符#</li>
+  <li>l -&gt; 光标向右移动一个字符#</li>
+  <li>n -&gt; n表示数字，如果想进行多次移动的话还可以加上数字，例如10j。</li>
+  <li>[Ctrl]+[f] -&gt; 屏幕向下移动一页，相当于[Page Down]按键#</li>
+  <li>[Ctrl]+[b] -&gt; 屏幕向上移动一页，相当于[Page Up]按键#
+ </li>
+  <li>+ -&gt; 光标移动到非空格的下一行</li>
+  <li>- -&gt; 光标移动到非空格的上一行</li>
+  <li>n -&gt; n表示数字，光标向右移动到该行的n个字符</li>
+  <li>0 -&gt; 光标移动到这一行最前面的字符处#</li>
+  <li>$ -&gt; 光标移动到这一行最后面的字符处#</li>
+  <li>H -&gt; 光标移动到屏幕的最上方那一行</li>
+  <li>M -&gt; 光标移动到屏幕的中央那一行</li>
+  <li>L -&gt; 光标移动到屏幕的最下方那一行</li>
+  <li>G -&gt; 光标移动到文件的最后一行#</li>
+  <li>nG -&gt; n表示数字，移动到这个文件的n行#</li>
+  <li>gg -&gt; 光标移动到文件的第一行#</li>
+  <li>n -&gt; n表示数字，光标向下n行#</li>
+</ul>
+
+<p><strong>一般模式：搜索与替换（#表示常用）</strong></p>
+
+<ul>
+  <li>/word -&gt; 从光标位置开始，向下寻找一个名为 word的字符</li>
+  <li>？word -&gt; 从光标位置开始，向上寻找一个名为 word的字符</li>
+  <li>n -&gt; n表示数字，表示重复前一个搜索动作</li>
+  <li>N -&gt; N表示数字，表示反向重复前一个搜索动作</li>
+  <li>:%s/word1/word2/g -&gt; 将文件中的word1字符串，并将该字符串替换成word2 #</li>
+  <li>:%s/word1/word2/gc -&gt; 将文件中的word1字符串，并将该字符串替换成word2，在替换前会显示提示符给用户确认 #</li>
+</ul>
+
+<p><strong>一般模式：删除，复制与粘贴（#表示常用）</strong></p>
+
+<ul>
+  <li>x、X -&gt; 在一行中，x向后删除字符，X向前删除字符#</li>
+  <li>nx -&gt; n表示数字，连续向后删除n个字符</li>
+  <li>dd -&gt; 删除光标所在的一整行#</li>
+  <li>ndd -&gt; n表示数字，从光标位置开始，删除向下的n行#</li>
+  <li>d1G -&gt; 删除光标所在位置到第一行所有的数据#</li>
+  <li>dG -&gt; 删除光标所在位置到最后一行所有的数据#</li>
+  <li>d$ -&gt; 删除光标所在位置到改行的最后一个字符</li>
+  <li>d0 -&gt; 删除光标所在位置到改行的最前一个字符</li>
+  <li>yy -&gt; 复制光标所在的一整行#</li>
+  <li>nyy -&gt; n表示数字，复制光标所在的向下n行#</li>
+  <li>y1G -&gt; 复制光标所在位置到第一行所有的数据#</li>
+  <li>yG -&gt; 复制光标所在位置到第一行所有的数据#</li>
+  <li>y0 -&gt; 复制光标所在的那个字符到该行行首的所有数据</li>
+  <li>y$ -&gt; 复制光标所在的那个字符到该行行尾的所有数据</li>
+  <li>p、P -&gt; p将已复制的数据粘贴到光标下一行，P相反#</li>
+  <li>J -&gt; 将光标所在的行与下一行结合在一起#</li>
+  <li>c -&gt; 重复删除多个数据</li>
+  <li>u -&gt; 复原前一个操作，撤销#</li>
+  <li>[Ctrl]+[r] -&gt; 重复上一个操作，恢复#</li>
+  <li>. -&gt; 重复前一个动作#</li>
+</ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/12">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/10">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>
+    如果有一天，你不再尋找愛情，只是去愛；你不再渴望成功，只是去做；你不再追求成長，只是去修；一切才真正開始！
+    <br>
+    &#8211;by 紀伯倫 Kahil · Gibran
+  </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/talk-about-things-driving-test.html">谈谈考驾照的事情</a>
+      </li>
+    
+      <li class="post">
+        <a href="/talk-about-time-management.html">谈谈时间管理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/about-3li3.com.html">关于三立三</a>
+      </li>
+    
+      <li class="post">
+        <a href="/beta-online-summary.html">项目 Beta 版上线总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/if-I-was-a-project-manager.html">如果是我来做项目经理</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/ajax/'>ajax (1)</a></li>
+<li class='category'><a href='/blog/categories/api/'>api (1)</a></li>
+<li class='category'><a href='/blog/categories/app/'>app (2)</a></li>
+<li class='category'><a href='/blog/categories/cakephp/'>cakephp (5)</a></li>
+<li class='category'><a href='/blog/categories/codeigniter/'>codeigniter (3)</a></li>
+<li class='category'><a href='/blog/categories/css/'>css (2)</a></li>
+<li class='category'><a href='/blog/categories/docker/'>docker (1)</a></li>
+<li class='category'><a href='/blog/categories/git/'>git (3)</a></li>
+<li class='category'><a href='/blog/categories/github/'>github (2)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (4)</a></li>
+<li class='category'><a href='/blog/categories/jquery/'>jquery (5)</a></li>
+<li class='category'><a href='/blog/categories/mac/'>mac (2)</a></li>
+<li class='category'><a href='/blog/categories/mysql/'>mysql (3)</a></li>
+<li class='category'><a href='/blog/categories/nginx/'>nginx (1)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (4)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (17)</a></li>
+<li class='category'><a href='/blog/categories/phpstorm/'>phpstorm (1)</a></li>
+<li class='category'><a href='/blog/categories/phpji-chu/'>php基础 (4)</a></li>
+<li class='category'><a href='/blog/categories/python/'>python (1)</a></li>
+<li class='category'><a href='/blog/categories/restful/'>restful (2)</a></li>
+<li class='category'><a href='/blog/categories/sublime/'>sublime (1)</a></li>
+<li class='category'><a href='/blog/categories/travis-ci/'>travis-ci (1)</a></li>
+<li class='category'><a href='/blog/categories/vagrant/'>vagrant (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+<li class='category'><a href='/blog/categories/virtualbox/'>virtualbox (1)</a></li>
+<li class='category'><a href='/blog/categories/xampp/'>xampp (1)</a></li>
+<li class='category'><a href='/blog/categories/yii/'>yii (8)</a></li>
+<li class='category'><a href='/blog/categories/yii1/'>yii1 (2)</a></li>
+<li class='category'><a href='/blog/categories/yii2/'>yii2 (3)</a></li>
+<li class='category'><a href='/blog/categories/bu-gen-tuan/'>不跟团 (3)</a></li>
+<li class='category'><a href='/blog/categories/jian-shen/'>健身 (1)</a></li>
+<li class='category'><a href='/blog/categories/fen-xiang-jing-yan/'>分享经验 (1)</a></li>
+<li class='category'><a href='/blog/categories/tu-cao/'>吐槽 (3)</a></li>
+<li class='category'><a href='/blog/categories/gong-ju/'>工具 (3)</a></li>
+<li class='category'><a href='/blog/categories/gan-huo/'>干货 (3)</a></li>
+<li class='category'><a href='/blog/categories/si-kao/'>思考 (10)</a></li>
+<li class='category'><a href='/blog/categories/zong-jie/'>总结 (41)</a></li>
+<li class='category'><a href='/blog/categories/xiao-lu/'>效率 (1)</a></li>
+<li class='category'><a href='/blog/categories/lu-you/'>旅游 (4)</a></li>
+<li class='category'><a href='/blog/categories/jia-gou/'>架构 (1)</a></li>
+<li class='category'><a href='/blog/categories/dian-ying/'>电影 (3)</a></li>
+<li class='category'><a href='/blog/categories/zhi-hu/'>知乎 (1)</a></li>
+<li class='category'><a href='/blog/categories/cheng-xu-yuan/'>程序员 (1)</a></li>
+<li class='category'><a href='/blog/categories/guan-li/'>管理 (1)</a></li>
+<li class='category'><a href='/blog/categories/jing-yan-fen-xiang/'>经验分享 (1)</a></li>
+<li class='category'><a href='/blog/categories/bian-cheng-gong-ju/'>编程工具 (2)</a></li>
+<li class='category'><a href='/blog/categories/fan-yi/'>翻译 (4)</a></li>
+<li class='category'><a href='/blog/categories/du-shu/'>读书 (1)</a></li>
+<li class='category'><a href='/blog/categories/yue-du/'>阅读 (5)</a></li>
+
+  </ul>
+</section><script type="text/javascript" src="http://www.douban.com/service/badge/ipzone/?selection=favorite&amp;picsize=small&amp;show=collection&amp;n=12&amp;hidelogo=on&amp;cat=movie%7Cbook&amp;columns=3"></script>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/forecho">@forecho</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'forecho',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - forecho -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'blog-forecho';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

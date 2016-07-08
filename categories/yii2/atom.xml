@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Yii2 | forecho]]></title>
+  <link href="http://blog.forecho.com/categories/yii2/atom.xml" rel="self"/>
+  <link href="http://blog.forecho.com/"/>
+  <updated>2016-07-08T02:14:06+00:00</updated>
+  <id>http://blog.forecho.com/</id>
+  <author>
+    <name><![CDATA[forecho]]></name>
+    <email><![CDATA[caizhenghai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Yii2 高级版新建一个 Api 应用]]></title>
+    <link href="http://blog.forecho.com/yii2-create-api.html"/>
+    <updated>2015-07-27T14:25:53+00:00</updated>
+    <id>http://blog.forecho.com/yii2-create-api</id>
+    <content type="html"><![CDATA[<p>先在项目的根目录下复制一份 backend 为 api：</p>
+
+<p><code>sh
+cp backend/ api -r
+</code></p>
+
+<p>拷贝 api 环境</p>
+
+<p><code>sh
+cp -a environments/dev/frontend environments/dev/api
+cp -a environments/prod/frontend environments/prod/api
+</code></p>
+
+<p>修改 environments/index.php 文件之后的代码（主要是添加了一些 api 相关的代码）：</p>
+
+<p><code>php
+return [
+    'Development' =&gt; [
+        'path' =&gt; 'dev',
+        'setWritable' =&gt; [
+            'backend/runtime',
+            'backend/web/assets',
+            'frontend/runtime',
+            'frontend/web/assets',
+            'api/runtime',
+            'api/web/assets',
+        ],
+        'setExecutable' =&gt; [
+            'yii',
+        ],
+        'setCookieValidationKey' =&gt; [
+            'backend/config/main-local.php',
+            'frontend/config/main-local.php',
+            'api/config/main-local.php',
+        ],
+    ],
+    'Production' =&gt; [
+        'path' =&gt; 'prod',
+        'setWritable' =&gt; [
+            'backend/runtime',
+            'backend/web/assets',
+            'frontend/runtime',
+            'frontend/web/assets',
+            'api/runtime',
+            'api/web/assets',
+        ],
+        'setExecutable' =&gt; [
+            'yii',
+        ],
+        'setCookieValidationKey' =&gt; [
+            'backend/config/main-local.php',
+            'frontend/config/main-local.php',
+            'api/config/main-local.php',
+        ],
+    ],
+];
+</code></p>
+
+<!--more-->
+
+<p>然后再执行初始化命令：</p>
+
+<p><code>sh
+php init
+</code></p>
+
+<p>然后记得去 common/config/bootstrap.php 最后一行添加如下代码：</p>
+
+<p><code>php
+Yii::setAlias('api', dirname(dirname(__DIR__)) . '/api');
+</code></p>
+
+<p>修改一下配置文件 api/config/main.php</p>
+
+<p><code>php
+return [
+    'id' =&gt; 'app-api',
+    // ...
+    'controllerNamespace' =&gt; 'api\controllers',
+]
+</code></p>
+
+<p>最后 api 里面的控制器等有命名空间的文件也要修改一下。</p>
+
+<p><strong>参考资料</strong></p>
+
+<ul>
+  <li><a href="http://blog.phpor.me/%E5%B7%A5%E4%BD%9C/yii/2014/11/17/yii2-usage.html#create_new_app">在原有的Yii2框架上，新建一个api应用</a></li>
+  <li><a href="http://www.digpage.com/video_1.html">第一讲：基础配置</a></li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yii2 搭建最基础的 RESTful]]></title>
+    <link href="http://blog.forecho.com/yii2-base-restful.html"/>
+    <updated>2015-07-27T12:25:53+00:00</updated>
+    <id>http://blog.forecho.com/yii2-base-restful</id>
+    <content type="html"><![CDATA[<p>为了让项目更加清晰，我们可以单独新建一个 Api，用来专门开发 Api。至于怎么新建，参考这篇文章：<a href="http://blog.forecho.com/blog/yii2-create-api.html">Yii2 高级版新建一个 Api 应用</a></p>
+
+<hr />
+<p><strong>系列文章</strong></p>
+
+<p>最近半年一直在开发 restful 的 API 系统，所以打算写这系列文章来分享自己的经验，希望对大家有用。</p>
+
+<ul>
+  <li><a href="http://blog.forecho.com/blog/yii2-base-restful.html">Yii2 搭建最基础的 RESTful</a></li>
+  <li><a href="">Yii2 RESTful 添加认证</a></li>
+  <li><a href="">Yii2 RESTful 添加鉴权</a></li>
+  <li><a href="">Yii2 RESTful 添加访问速率限制</a></li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yii2 如何实现 RESTful？]]></title>
+    <link href="http://blog.forecho.com/yii2-use-restful.html"/>
+    <updated>2015-03-22T12:25:53+00:00</updated>
+    <id>http://blog.forecho.com/yii2-use-restful</id>
+    <content type="html"><![CDATA[<h2 id="rest">什么是REST</h2>
+
+<p>简单的说，REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。</p>
+
+<h2 id="restful">为什么要Restful？</h2>
+
+<p>主要遵循两个准则：</p>
+
+<ul>
+  <li>不要为了RESTful而RESTful</li>
+  <li>在能表达清楚的情况下，简单就是美</li>
+</ul>
+
+<h2 id="yii2--restful">Yii2 使用 RESTful？</h2>
+
+<p>其实 Yii2 框架本身就对 RESTful 是友好支持的，具体可以看<a href="http://www.yiiframework.com/doc-2.0/guide-rest-quick-start.html">官方文档</a>，或者去看源码，都是可以的。</p>
+
+<p><strong>下面分享我写的<a href="https://github.com/iiYii/yii2-rest-demo">Yii2 RESTful DEMO</a>。</strong></p>
+
+<p>具体实现可以看我的代码，有不懂的可以留言。下面我重点说一下值得注意的地方：</p>
+
+<!--more-->
+
+<h3 id="yii2-restful-">Yii2 RESTful 如何实现自定义方法？</h3>
+
+<p>新建一个 user 控制器，输入以下代码：</p>
+
+<p>&#8220;`
+namespace app\controllers;</p>
+
+<p>use yii\rest\ActiveController;</p>
+
+<p>class UserController extends ActiveController
+{
+    public $modelClass = ‘app\models\User’;
+}
+&#8220;`</p>
+
+<p>然后你在浏览器里面输入 用 GET 请求 <code>localhost/basic/web/users</code> 这个地址是可以跑的，因为继承的 <code>ActiveController</code> 这个类是有对 user RESTful 表的 基本操作的，包括 GET，POST，PUT，PATCH，DELETE。所以我们要注销系统自带的实现方法，代码如下，添加到控制器中，后者自己新建一个 ActiveController 类。</p>
+
+<p><code>
+public function actions()
+{
+   $actions = parent::actions();
+    // 注销系统自带的实现方法
+    unset($actions['index'], $actions['update'], $actions['create'], $actions['delete'], $actions['view']);
+    return $actions;
+}
+</code></p>
+
+<p>然后下面我们就可以写自己的 actionIndex、actionCreate、actionUpdate 和 actionDelete 了。</p>
+
+<h3 id="section">实现用户验证</h3>
+
+<p>框架其实是提供三种验证方式的，我就说一下最长用的 token 实现验证吧。</p>
+
+<p>首先你要在控制器中加入下面代码：</p>
+
+<p><code>
+public function behaviors()
+{
+    $behaviors = parent::behaviors();
+    $behaviors['authenticator'] = [
+        'class' =&gt; CompositeAuth::className(),
+        'authMethods' =&gt; [
+            QueryParamAuth::className(),
+        ],
+    ];
+    return $behaviors;
+}
+</code></p>
+
+<p>然后你要去修改 user 的 model，具体参照这块代码：<a href="https://github.com/iiYii/yii2-rest-demo/commit/02db1711bcaa42040360d50ffcf771626474f5ad">添加 restful 授权认证</a></p>
+
+<h2 id="section-1">参考文章</h2>
+
+<ul>
+  <li><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html">理解RESTful架构</a></li>
+  <li><a href="http://segmentfault.com/blog/cloudmario/1190000000635914">RESTful实践总结</a></li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>

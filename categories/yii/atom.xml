@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Yii | forecho]]></title>
+  <link href="http://blog.forecho.com/categories/yii/atom.xml" rel="self"/>
+  <link href="http://blog.forecho.com/"/>
+  <updated>2016-07-08T02:14:06+00:00</updated>
+  <id>http://blog.forecho.com/</id>
+  <author>
+    <name><![CDATA[forecho]]></name>
+    <email><![CDATA[caizhenghai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Yii 非主键关联]]></title>
+    <link href="http://blog.forecho.com/Yii-fei-zhu-jian-guan-lian.html"/>
+    <updated>2014-01-24T13:53:00+00:00</updated>
+    <id>http://blog.forecho.com/Yii-fei-zhu-jian-guan-lian</id>
+    <content type="html"><![CDATA[<p><code>php
+function relations()
+    {
+        return array(
+            'last_experience' =&gt; array(
+                self::HAS_ONE,
+                'Experience',
+                '',
+                'on' =&gt; 'user_id=last_experience.user_id'
+            ),
+        );
+    }
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yii扩展自带的时间选择器插件CJuiDatePicker]]></title>
+    <link href="http://blog.forecho.com/Yii-kuo-zhan-zi-dai-de-shi-jian-xuan-ze-qi-cha-jian-CJuiDatePicker.html"/>
+    <updated>2014-01-13T16:48:00+00:00</updated>
+    <id>http://blog.forecho.com/Yii-kuo-zhan-zi-dai-de-shi-jian-xuan-ze-qi-cha-jian-CJuiDatePicker</id>
+    <content type="html"><![CDATA[<p>事情大概是这样的：我数据库时间字段用的是 int 类型，存储的是时间戳。并且我写文章的时候，时间是需要可以修改的。</p>
+
+<p>来一张最终效果图： <img src="http://ww4.sinaimg.cn/large/4cc5f9b3gw1ecitqi8pchj207n0ayt99.jpg" alt="" /></p>
+
+<p>首先我用了 Yii 自带的 Zii CJuiDatePicker 扩展，非常的强大的把 jQuery UI 的 <a href="http://jqueryui.com/datepicker/">Datepicker</a> 继承进去了，使用非常的简单，手册上有。但是这个有个缺陷，没有小时分钟，只能配置日期。这个有点坑爹了。然后没办法，去找了一个 yii 的扩展。我选了 <a href="http://www.yiiframework.com/extension/ejuidatetimepicker/">ejuidatetimepicker</a>，使用也很简单，基本就按照给的 Demo复制过去就可以了。</p>
+
+<p>现在来说说这个功能的难点，首先我数据库是 int 时间戳格式的，但是我用的这个插件是日期格式的，那么现在我又不想改数据库时间的字段类型，我要如何解决？ Google 了一下，找到了一篇文章，我按照这个来结果成功了。</p>
+
+<p>首先根据插件的 Demo 我们在视图form的时间是这样写的：</p>
+
+<pre><code>&lt;?php echo $form-&gt;labelEx($model,'create_time'); ?&gt;
+    &lt;?php $this-&gt;widget('application.extensions.timepicker.EJuiDateTimePicker',array(
+        'model'=&gt;$model,
+        'attribute'=&gt;'create_time',
+        'language'=&gt;'zh-CN',
+        'options'=&gt;array(
+            'hourGrid' =&gt; 4,
+            'hourMin' =&gt; 9,
+            'hourMax' =&gt; 17,
+            'timeFormat' =&gt; 'hh:mm',
+            'changeMonth' =&gt; true,
+            'changeYear' =&gt; false,
+            ),
+        'htmlOptions'=&gt;array(
+            'readonly'=&gt;true,
+            'style'=&gt;'width:180px;'
+        ),
+    )); ?&gt;
+&lt;?php echo $form-&gt;error($model,'create_time'); ?&gt;
+</code></pre>
+
+<p>控制器部分我们基本上不用修改。接下来我们去修改 Model 文件，添加两个 yii 的 function：</p>
+
+<pre><code>protected function beforeSave()
+{
+    $this-&gt;admin_id = Yii::app()-&gt;user-&gt;id;
+    // $this-&gt;create_time = date('Y-m-d', CDateTimeParser::parse($this-&gt;create_time, 'yyyy-MM-dd hh:mm'));
+    $this-&gt;create_time = strtotime($this-&gt;create_time);
+    return parent::beforeSave();
+}
+
+protected function afterFind()
+{
+    $this-&gt;create_time = Yii::app()-&gt;dateFormatter-&gt;format('yyyy-MM-dd hh:mm', $this-&gt;create_time);
+    return parent::afterFind();
+}
+</code></pre>
+
+<p><code>beforeSave</code> 就是数据保存之前我们要处理的事件。<code>afterFind</code> 就是数据显示之前我们要处理的事件。 非常巧妙的用法。</p>
+
+<p>最后别忘记了把 Model 的 rules 的时间验证规则改一下，代码如下：</p>
+
+<pre><code>array('create_time', 'date', 'format'=&gt;'yyyy-MM-dd hh:mm', 'message'=&gt;'{attribute} have wrong format'),
+</code></pre>
+
+<p>**值得注意的是 rules 验证会在 beforeSave 之前执行。beforeSave 和 afterFind 都是 protected 属性。</p>
+
+<p>** 参考文章：**
+- <a href="http://www.yiiframework.com/extension/ejuidatetimepicker/">http://www.yiiframework.com/extension/ejuidatetimepicker/</a>
+- <a href="http://www.yiiframework.com/doc/api/1.1/CJuiDatePicker">http://www.yiiframework.com/doc/api/1.1/CJuiDatePicker</a>
+- <a href="http://www.volkomenjuist.nl/blog/2013/02/24/yii-cjuidatepicker-dateformat/">http://www.volkomenjuist.nl/blog/2013/02/24/yii-cjuidatepicker-dateformat/ </a>  </p>
+
+<p>最后感叹下自带 zii 的方便强大，再分享一个资源： <a href="http://www.bsourcecode.com/yii-framework/yii-extensions/">http://www.bsourcecode.com/yii-framework/yii-extensions/</a></p>
+
+<h2 id="comments">Comments</h2>
+
+<p><strong><a href="#206" title="2014-08-22 12:05:00">Jack Van</a>:</strong> 怎么只能从9点到16点</p>
+
+<p><strong><a href="#208" title="2014-10-19 15:41:00">ForEcho</a>:</strong> 代码上面有参数。自己可以设置，hourMin 和 hourMax</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yii 调用KindEditor在线编辑器]]></title>
+    <link href="http://blog.forecho.com/yii-diao-yong-KindEditor-zai-xian-bian-ji-qi.html"/>
+    <updated>2012-09-28T15:33:00+00:00</updated>
+    <id>http://blog.forecho.com/yii-diao-yong-KindEditor-zai-xian-bian-ji-qi</id>
+    <content type="html"><![CDATA[<ol>
+  <li>先下载<a href="http://pan.baidu.com/share/link?shareid=8839&amp;uk=2684558169">这个</a>文件，然后解压，把editor 这个文件夹放在你项目的根目录里。</li>
+  <li>然后找_form.php这个文件，找到你的”content”（这里我的是名称是“news_content”），修改成如下代码：（被注释掉的是原来的代码，上面一行是新加上的。）</li>
+</ol>
+
+<p>&#8220;`php</p>
+<div class="row">
+    <?php echo $form->labelEx($model,&#8217;news_content&#8217;); ?>
+    <?php echo $form->textArea($model,&#8217;news_content&#8217;,array(&#8216;style&#8217;=>&#8217;width:90%; height:500px&#8217;)); ?>
+    <?php // echo $form->textField($model,&#8217;news_content&#8217;,array(&#8216;size&#8217;=>60,&#8217;maxlength&#8217;=>8000)); ?>
+    <?php echo $form->error($model,&#8217;news_content&#8217;); ?>
+</div>
+<p>&#8220;`</p>
+
+<p>然后在_form.php这个文件开头，添加如下代码，调用编辑器样式。</p>
+
+<p><code>php
+&lt;?php
+    Yii::app()-&gt;clientScript-&gt;registerCssFile('./editor/themes/default/default.css');
+?&gt;
+</code></p>
+
+<p>最后在_form.php这个文件结尾处，添加如下代码，调用编辑器的js文件以及调用js</p>
+
+<p><code>javascript
+&lt;script charset="utf-8" src="./editor/kindeditor.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    KindEditor.ready(function(K) {
+        editor = K.create('#News_news_content', {
+            allowFileManager: true,
+            resizeType: 1,
+            newlineTag: 'p',
+            //syncType: '',
+            // uploadJson: '&lt;?php echo $this-&gt;createUrl('news/upload') ?&gt;'
+        });
+    });
+&lt;/script&gt;
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[yii学习笔记（五）-修改新建Create页面]]></title>
+    <link href="http://blog.forecho.com/yii-xue-xi-bi-ji-wu-xiu-gai-xin-jian-Create-ye-mian.html"/>
+    <updated>2012-07-12T15:47:00+00:00</updated>
+    <id>http://blog.forecho.com/yii-xue-xi-bi-ji-wu-xiu-gai-xin-jian-Create-ye-mian</id>
+    <content type="html"><![CDATA[<p>我们可以用gii生成views里面的页面，很方便的，但是，并不是所有的东西都是我们所需要的，所以我们要学会修改代码，为我们所用。 <strong>改为下拉选项框</strong> 添加某个字段的时候，把手动输入的input表单改成下拉选项框。 首页，我们要在字段对应的表的m下写入一个方法。比方说我现在一个type_id字段对应的是news_type表。 那么我们在m文件夹中找到NewsType.php文件，在末尾加上这段代码：</p>
+
+<pre><code>// 获取type
+public function getNewsTypeList()
+{
+    $newsTypeList = NewsType::model()-&gt;findAll();
+    return CHtml::listData($newsTypeList,'id','news_type_name');
+
+    //下面是用来验证的代码
+    // $returnData = CHtml::listData($newsTypeList,'id','news_type_name');
+    // print_r($returnData);
+    // exit;
+}
+</code></pre>
+
+<p>然后我们找到Create所在的页面，这里是Admin/views/news/_form.php文件。 找到这段代码：</p>
+
+<pre><code>&lt;?php echo $form-&gt;textField($model,'type_id',array('size'=&gt;10,'maxlength'=&gt;10)); ?&gt;
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code>&lt;?php echo $form-&gt;dropDownList($model,'type_id',NewsType::model()-&gt;getNewsTypeList()); ?&gt;
+</code></pre>
+
+<p>刷新一下就会得到我们想要的下拉选项效果。 <strong>系统默认添加的信息</strong> 那么有些情况下，我们会遇到一个字段是由系统自动帮我们添加的，比方说，添加新闻的人，时间。 我们先把_form.php文件里字段相应的代码删掉。 然后去找这个表的m文件，这里是News.php文件 在末尾加上这段代码：</p>
+
+<pre><code>//自动添加新闻时间、状态
+protected function beforeSave()
+{
+    if (parent::beforeSave()) {
+        if ($this-&gt;isNewRecord) {
+
+        //如果是新的新闻
+
+            $this-&gt;create_time = date('Y-m-d H:i:s');
+            $this-&gt;create_user_id = Yii::app()-&gt;user-&gt;id;
+        }else {
+            $this-&gt;update_time = date('Y-m-d H:i:s');
+            $this-&gt;update_user_id = Yii::app()-&gt;user-&gt;id;
+        }
+            return true;
+        }else {
+            return false;
+    }
+
+}
+</code></pre>
+
+<p><strong>读取数据的时候转换</strong> 其实这个时候数据记录type_id字段的任然是数字，那么读取的时候我们还需要转换一下。 在读取页面的m对应的文件中修改代码，这里对应的是News.php文件 我们找到下面这段代码：</p>
+
+<pre><code>public function relations()
+{
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array();
+}
+</code></pre>
+
+<p>添加修改为：</p>
+
+<pre><code>public function relations()
+{
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    //表链接
+    return array(
+        'typeName'=&gt;array(self::BELONGS_TO,'NewsType','type_id'),
+        'statusName'=&gt;array(self::BELONGS_TO,'StatusType','status_id'),
+    );
+}
+</code></pre>
+
+<p>然后去找到要显示的页面，这里是Admin/views/news/_view.php 找到这段代码：</p>
+
+<pre><code>&lt;?php echo CHtml::encode($data-&gt;type_id); ?&gt;
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code>&lt;?php echo CHtml::encode($data-&gt;typeName-&gt;news_type_name); ?&gt;
+</code></pre>
+
+<p>statusName也是这样修改。</p>
+
+<h2 id="comments">Comments</h2>
+
+<p><strong><a href="#111" title="2012-07-13 16:04:30">桂林老医</a>:</strong> :shock: 看不懂</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yii学习笔记（四）-用户登录]]></title>
+    <link href="http://blog.forecho.com/yii-xue-xi-bi-ji-si-yong-hu-deng-lu.html"/>
+    <updated>2012-07-10T15:44:00+00:00</updated>
+    <id>http://blog.forecho.com/yii-xue-xi-bi-ji-si-yong-hu-deng-lu</id>
+    <content type="html"><![CDATA[<p>先在 \protected\components\文件夹里面找到UserIdentity.php</p>
+
+<p>然后用gii的Model Generator生成User的Model</p>
+
+<p>然后在UserIdentity.php找到这段代码：</p>
+
+<pre><code>public function authenticate()
+{
+    $users=array(
+        // username =&gt; password
+        'demo'=&gt;'demo',
+        'admin'=&gt;'admin',
+    );
+    if(!isset($users[$this-&gt;username]))
+        $this-&gt;errorCode=self::ERROR_USERNAME_INVALID;
+    else if($users[$this-&gt;username]!==$this-&gt;password)
+        $this-&gt;errorCode=self::ERROR_PASSWORD_INVALID;
+    else
+        $this-&gt;errorCode=self::ERROR_NONE;
+    return !$this-&gt;errorCode;
+}
+</code></pre>
+
+<p>替换为：</p>
+
+<pre><code>private $_id;
+
+public function authenticate()
+{
+    //用户名转换为小写
+    $username=strtolower($this-&gt;username);
+
+    //$username作为条件进入数据库查询匹配
+    $user=User::model()-&gt;find('LOWER(username)=?',array($username));
+
+    //用户名不存在，报错
+    if ($user===null) {
+        $this-&gt; errorCode=self::ERROR_USERNAME_INVALID;
+    }else{
+
+        //调用一个函数，匹配相应的密码
+        if (!$user-&gt;validatePassword($this-&gt;password)) {
+            $this-&gt;errorCode=self::ERROR_PASSWORD_INVALID;
+        }else {
+
+            //匹配成功，赋值
+            $this-&gt;_id = $user-&gt;id;
+            $this-&gt;username = $user-&gt;username;
+            $this-&gt;errorCode=self::ERROR_NONE;
+        }
+    }
+    return $this-&gt;errorCode === self::ERROR_NONE;
+}
+
+public function getId() {
+    return $this-&gt;_id;
+}
+</code></pre>
+
+<p>在Models里面的User.php添加两个新的方法。添加如下代码：</p>
+
+<pre><code>// 查询密码是否匹配
+public function validatePassword($password)
+{
+    return $this-&gt;encrypt($password)===$this-&gt;password;
+}
+
+public function encrypt($pass)
+{
+    return md5($pass);
+}
+
+// 添加的密码进行MD5加密
+protected function beforeSave() {
+    if (parent::beforeSave()) {
+        //判断是否是新的密码
+        if ($this-&gt;isNewRecord) {
+            $this-&gt;password = $this-&gt;encrypt($this-&gt;password);
+        }
+        return true;
+    }else {
+        return false;
+    }
+}
+</code></pre>
+
+<p>然后用gii的Crud Generator生成User的Controllers文件UserController.php 这个文件的下面代码是一个简单的权限系统</p>
+
+<pre><code>public function accessRules()
+{
+    return array(
+        array('allow',  // allow all users to perform 'index' and 'view' actions
+            'actions'=&gt;array('index','view'),
+            'users'=&gt;array('*'),
+        ),
+        array('allow', // allow authenticated user to perform 'create' and 'update' actions
+            'actions'=&gt;array('create','update'),
+            'users'=&gt;array('@'),
+        ),
+        array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            'actions'=&gt;array('admin','delete'),
+            'users'=&gt;array('admin'),
+        ),
+        array('deny',  // deny all users
+            'users'=&gt;array('*'),
+        ),
+    );
+}
+</code></pre>
+
+<p>注：
+- “ * ”—-任何人都可以访问。
+- “ @ ”—-登录用户才能访问。
+- “ admin ”—-是指只有admin用户才能访问。</p>
+]]></content>
+  </entry>
+  
+</feed>

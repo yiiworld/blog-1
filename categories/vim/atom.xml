@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vim | forecho]]></title>
+  <link href="http://blog.forecho.com/categories/vim/atom.xml" rel="self"/>
+  <link href="http://blog.forecho.com/"/>
+  <updated>2016-07-08T02:14:06+00:00</updated>
+  <id>http://blog.forecho.com/</id>
+  <author>
+    <name><![CDATA[forecho]]></name>
+    <email><![CDATA[caizhenghai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Vim编辑器使用（一）]]></title>
+    <link href="http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-yi.html"/>
+    <updated>2013-07-09T10:39:00+00:00</updated>
+    <id>http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-yi</id>
+    <content type="html"><![CDATA[<p><img src="http://m2.img.libdd.com/farm3/19/3B97FC2A47562849C033A8102DD79B13_800_543.jpg" alt="" /></p>
+
+<p>默认是一般模式</p>
+
+<p>按 i、I、o、O、a、A、r、R进入编辑模式</p>
+
+<p>按：、/、？进入命令行模式</p>
+
+<p><strong>补充解释：</strong></p>
+
+<p>i, I 进入插入模式(Insert mode)：<br />
+i为『从目前鼠标所在处插入』， I为『在目前所在行的第一个非空白字元处开始插入』。( 常用 )</p>
+
+<p>a, A 进入插入模式(Insert mode)：<br />
+a为『从目前鼠标所在的下一个字元处开始插入』， A为『从鼠标所在行的最后一个字元处开始插入』。( 常用 )</p>
+
+<p>o, O 进入插入模式(Insert mode)：<br />
+这是英文字母o的大小写。o为『在目前鼠标所在的下一行处插入新的一行』； O为在目前鼠所在处的上一行插入新的一行！( 常用 )</p>
+
+<p>r, R 进入取代模式(Replace mode)：<br />
+r只会取代鼠标所在的那一个字元一次；R会一直取代鼠标所在的文字，直到按下ESC为止；( 常用 )</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim编辑器使用（二）——一般模式]]></title>
+    <link href="http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-er-yi-ban-mo-shi.html"/>
+    <updated>2013-07-09T10:39:00+00:00</updated>
+    <id>http://blog.forecho.com/Vim-bian-ji-qi-shi-yong-er-yi-ban-mo-shi</id>
+    <content type="html"><![CDATA[<p><strong>一般模式：移动光标的方法（#表示常用）</strong></p>
+
+<ul>
+  <li>h -&gt; 光标向左移动一个字符#</li>
+  <li>j -&gt; 光标向下移动一个字符#</li>
+  <li>k -&gt; 光标向上移动一个字符#</li>
+  <li>l -&gt; 光标向右移动一个字符#</li>
+  <li>n -&gt; n表示数字，如果想进行多次移动的话还可以加上数字，例如10j。</li>
+  <li>[Ctrl]+[f] -&gt; 屏幕向下移动一页，相当于[Page Down]按键#</li>
+  <li>[Ctrl]+[b] -&gt; 屏幕向上移动一页，相当于[Page Up]按键#
+ </li>
+  <li>+ -&gt; 光标移动到非空格的下一行</li>
+  <li>- -&gt; 光标移动到非空格的上一行</li>
+  <li>n -&gt; n表示数字，光标向右移动到该行的n个字符</li>
+  <li>0 -&gt; 光标移动到这一行最前面的字符处#</li>
+  <li>$ -&gt; 光标移动到这一行最后面的字符处#</li>
+  <li>H -&gt; 光标移动到屏幕的最上方那一行</li>
+  <li>M -&gt; 光标移动到屏幕的中央那一行</li>
+  <li>L -&gt; 光标移动到屏幕的最下方那一行</li>
+  <li>G -&gt; 光标移动到文件的最后一行#</li>
+  <li>nG -&gt; n表示数字，移动到这个文件的n行#</li>
+  <li>gg -&gt; 光标移动到文件的第一行#</li>
+  <li>n -&gt; n表示数字，光标向下n行#</li>
+</ul>
+
+<p><strong>一般模式：搜索与替换（#表示常用）</strong></p>
+
+<ul>
+  <li>/word -&gt; 从光标位置开始，向下寻找一个名为 word的字符</li>
+  <li>？word -&gt; 从光标位置开始，向上寻找一个名为 word的字符</li>
+  <li>n -&gt; n表示数字，表示重复前一个搜索动作</li>
+  <li>N -&gt; N表示数字，表示反向重复前一个搜索动作</li>
+  <li>:%s/word1/word2/g -&gt; 将文件中的word1字符串，并将该字符串替换成word2 #</li>
+  <li>:%s/word1/word2/gc -&gt; 将文件中的word1字符串，并将该字符串替换成word2，在替换前会显示提示符给用户确认 #</li>
+</ul>
+
+<p><strong>一般模式：删除，复制与粘贴（#表示常用）</strong></p>
+
+<ul>
+  <li>x、X -&gt; 在一行中，x向后删除字符，X向前删除字符#</li>
+  <li>nx -&gt; n表示数字，连续向后删除n个字符</li>
+  <li>dd -&gt; 删除光标所在的一整行#</li>
+  <li>ndd -&gt; n表示数字，从光标位置开始，删除向下的n行#</li>
+  <li>d1G -&gt; 删除光标所在位置到第一行所有的数据#</li>
+  <li>dG -&gt; 删除光标所在位置到最后一行所有的数据#</li>
+  <li>d$ -&gt; 删除光标所在位置到改行的最后一个字符</li>
+  <li>d0 -&gt; 删除光标所在位置到改行的最前一个字符</li>
+  <li>yy -&gt; 复制光标所在的一整行#</li>
+  <li>nyy -&gt; n表示数字，复制光标所在的向下n行#</li>
+  <li>y1G -&gt; 复制光标所在位置到第一行所有的数据#</li>
+  <li>yG -&gt; 复制光标所在位置到第一行所有的数据#</li>
+  <li>y0 -&gt; 复制光标所在的那个字符到该行行首的所有数据</li>
+  <li>y$ -&gt; 复制光标所在的那个字符到该行行尾的所有数据</li>
+  <li>p、P -&gt; p将已复制的数据粘贴到光标下一行，P相反#</li>
+  <li>J -&gt; 将光标所在的行与下一行结合在一起#</li>
+  <li>c -&gt; 重复删除多个数据</li>
+  <li>u -&gt; 复原前一个操作，撤销#</li>
+  <li>[Ctrl]+[r] -&gt; 重复上一个操作，恢复#</li>
+  <li>. -&gt; 重复前一个动作#</li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>
